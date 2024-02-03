@@ -1,0 +1,41 @@
+footer {
+    color: white;
+}
+.container1 {
+    color: wheat;
+    display: flex;
+    justify-content: start;
+
+}
+
+.library, .filter,.home-area {
+    margin: 4px;   
+}
+
+.library, .filter, .home-area  {
+    background-color: #181818cb;
+    border-radius: 8px;
+}
+
+.library, .filter {
+    display: flex;
+    flex-direction: column;
+    width: 263px;
+    padding: 20px;
+}
+
+.home-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.nav-search ul {
+    list-style: none;
+}
+
+.nav-search ul>li {
+    padding-top: 5px;
+    padding-bottom: 12px;
+}
