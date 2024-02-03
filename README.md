@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+#Spotify Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um projeto de clone do Spotify, desenvolvido para explorar várias tecnologias e conceitos, incluindo React.js, Node.js (com Express), PostgreSQL e integração com a Spotify API.
+Sumário
 
-## Available Scripts
+    Introdução
+    Funcionalidades
+    Pré-requisitos
+    Instalação
+    Configuração
+    Uso
+    Contribuição
+    Licença
 
-In the project directory, you can run:
+###Introdução
 
-### `npm start`
+O objetivo deste projeto é criar um clone básico do Spotify, proporcionando uma experiência de usuário semelhante à do serviço original. O projeto é desenvolvido usando React.js para o front-end, Node.js (com Express) para o back-end, PostgreSQL como banco de dados e a Spotify API para a integração com serviços de streaming de música.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+###Funcionalidades
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    Listagem de músicas recomendadas, novos lançamentos e playlists populares.
+    Reprodução de músicas com funcionalidades de reprodução, pausa, avanço e retrocesso.
+    Pesquisa avançada e filtros para encontrar músicas, artistas e playlists específicos.
+    Gerenciamento de playlists, permitindo aos usuários criar, editar e excluir suas próprias playlists.
 
-### `npm test`
+###Pré-requisitos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Antes de começar, certifique-se de ter os seguintes requisitos instalados:
 
-### `npm run build`
+    Node.js
+    npm (ou yarn)
+    PostgreSQL
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###Instalação
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    Clone o repositório:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    bash
 
-### `npm run eject`
+git clone https://github.com/seu-usuario/spotify-clone.git
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Acesse o diretório do projeto:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+bash
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+cd spotify-clone
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Instale as dependências do front-end:
 
-## Learn More
+bash
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+cd client
+npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Instale as dependências do back-end:
 
-### Code Splitting
+bash
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    cd ../server
+    npm install
 
-### Analyzing the Bundle Size
+###Configuração
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    Crie um banco de dados PostgreSQL e configure suas credenciais no arquivo server/config/db.js.
 
-### Making a Progressive Web App
+    Obtenha as credenciais da Spotify API em Spotify for Developers.
+        Configure as credenciais no arquivo server/config/spotifyConfig.js.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+###Uso
 
-### Advanced Configuration
+    Inicie o servidor back-end:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    bash
 
-### Deployment
+cd server
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Inicie o servidor front-end:
 
-### `npm run build` fails to minify
+bash
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    cd client
+    npm start
+
+    Acesse o aplicativo em http://localhost:3000.
+
+###Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir problemas (issues) e enviar pull requests para melhorar este projeto.
+
+###Licença
+
+Este projeto é licenciado sob a MIT License.
