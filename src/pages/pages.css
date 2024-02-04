@@ -160,3 +160,82 @@ footer > button {
     margin-left: 8px;
     cursor: pointer;
 }
+/**---------------------------------------FORMATAÇÃO PÁGINA DE REGISTRO-----------------------------**/
+.container-registro {
+    background-color: rgb(19, 19, 19);
+    height: 100vh;
+}
+
+.logo-2 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 32px 28px;
+}
+
+.logo-2 img{
+    width: 105px;
+}
+
+.form-email {
+    max-width: 300px;
+    color: white;
+}
+
+.form-email h1{
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 50px;
+}
+
+.form-email form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-email form > input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 8px;
+    color: rgb(238, 238, 238);
+    font-weight: 600;
+    height: 37px;
+    background-color: transparent;
+}
+
+.form-email form > a {
+    text-decoration: underline;
+    color: #1db954;
+}
+
+.avancar-registro {
+    margin-top: 22px;
+    padding: 18px;
+    border: none;
+    border-radius: 25px;
+    background-color: #1db954;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.form-email hr{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.form-email span {
+    color: rgb(92, 92, 92);
+}
+
+.form-email span > a {
+    margin-left: 3px;
+    color: white;
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+.span-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

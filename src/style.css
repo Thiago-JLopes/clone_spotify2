@@ -3,6 +3,10 @@
     font-family: 'Helvetica Neue',Arial, Helvetica, sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     background-color: #000000;
 }
