@@ -1,11 +1,25 @@
 footer {
     color: white;
 }
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
 .container1 {
     color: wheat;
     display: flex;
-    justify-content: start;
+    height: 100%;
+}
 
+.menu-lateral-home {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+.library {
+    height: 100%;
 }
 
 .library, .filter,.home-area {
@@ -21,7 +35,7 @@ footer {
     display: flex;
     flex-direction: column;
     width: 263px;
-    padding: 20px;
+    padding: 15px;
 }
 
 .home-area {
@@ -31,11 +45,118 @@ footer {
     padding: 20px;
 }
 
-.nav-search ul {
-    list-style: none;
+.nav-search {
+    display: flex;
+    flex-direction: column;
 }
 
-.nav-search ul>li {
-    padding-top: 5px;
-    padding-bottom: 12px;
+.nav-search div { 
+    padding-bottom: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-search span{
+    margin-left: 15px;
+    font-weight: 850;
+    font-size: 15px;
+}
+
+.library-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: static;
+}
+
+.library-head > .center {
+    text-decoration: none;
+}
+.yourLibrary {
+    margin-left: 5px;
+    color: white;
+    font-weight: 850;
+    font-size: 15px;
+}
+
+.plus:active {
+    background-color: rgb(41, 40, 40);
+}
+
+.info-library {
+    padding: 3px;
+    overflow-y: auto;
+    max-height: 105px;
+}
+
+.info-library div {
+    background-color: rgb(51, 50, 50);
+    color: white;
+    font-size: small;
+    padding: 5px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.button-infoLibrary {
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    margin: 8px;
+    font-weight: bold;
+}
+
+.info-library-div h4{
+    font-size: medium;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+footer {
+    background: linear-gradient(to right, rgb(183, 43, 226), rgb(131, 63, 177), rgb(132, 196, 221));
+    height: 70px;
+    margin: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer > button {
+    border: none;
+    width: 100px;
+    height: 45px;
+    border-radius: 20px;
+    margin: 20px;
+    margin-right: 40px;
+    font-size: medium;
+    cursor: pointer;
+}
+
+.links-diversos {
+    margin-top: 8px;
+    font-size: small;
+    color: rgb(226, 225, 225);
+}
+
+.links-diversos pre{
+    margin: 5px;
+    padding: 5px;
+}
+.links-diversos span {
+    font-weight: bold;
+    margin: 5px;
+}
+
+.links-diversos button {
+    border-color: rgb(75, 74, 73);
+    border-radius: 50px;
+    background-color: transparent;
+    color: white;
+    padding: 4px;
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 8px;
+    cursor: pointer;
 }
