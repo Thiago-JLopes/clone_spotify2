@@ -6,6 +6,7 @@ import iconSearch from '../assets/search-interface-symbol.png';
 import iconLibrary from '../assets/library.png';
 import iconPlus from '../assets/plus.png';
 import iconWWW from '../assets/globe.png';
+import Header from '../components/Header';
 
 export default function Home() {
   return (
@@ -89,14 +90,7 @@ export default function Home() {
 
         {/* Área Principal */}
         <div className='home-area'>
-          <nav className='nav-bar-home'></nav>
-          <div>playlists</div>
-          <div>sleep</div>
-
-          <div>
-            <div>das</div>
-            <div></div>
-          </div>
+          <Header/>
         </div>
       </div>
 
