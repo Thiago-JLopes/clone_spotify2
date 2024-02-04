@@ -18,14 +18,14 @@ export default function Home() {
             <nav className='nav-search'>
               {/* Link para a Página Principal */}
               <Link to='/'>
-                <div className='logo-filter'>
+                <div className='logo-filter center-start'>
                   <img src={logo} alt='icone logo' style={{ width: '81px', marginLeft: '2px' }} />
                 </div>
               </Link>
 
               {/* Link para a Página Inicial */}
               <Link to='/' style={{ textDecoration: 'none' }}>
-                <div className='icon-home'>
+                <div className='icon-home center-start'>
                   <img src={iconHome} alt='icone home' style={{ width: '27px' }} />
                   <span>Home</span>
                 </div>
@@ -33,7 +33,7 @@ export default function Home() {
 
               {/* Link para a Página de Busca */}
               <Link to='/' style={{ textDecoration: 'none' }}>
-                <div className='icon-search'>
+                <div className='icon-search center-start'>
                   <img src={iconSearch} alt='icone search' style={{ width: '26px' }} />
                   <span>Search</span>
                 </div>

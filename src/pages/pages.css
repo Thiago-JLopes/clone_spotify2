@@ -90,7 +90,7 @@ footer {
 }
 
 .info-library div {
-    background-color: rgb(51, 50, 50);
+    background-color: rgba(39, 38, 38, 0.76);
     color: white;
     font-size: small;
     padding: 5px;
