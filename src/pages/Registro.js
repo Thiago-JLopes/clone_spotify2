@@ -6,7 +6,7 @@ export default function Registro() {
     return (
         <div className="container-registro">
             <div className="logo-2">
-                <img src={logo} alt="logo spotify"/>
+                <Link to={'/'}><img src={logo} alt="logo spotify"/></Link>
             </div>
 
             <div className='form center'>
@@ -15,7 +15,7 @@ export default function Registro() {
 
                     <form>
                         <label>Endereço de e-mail</label>
-                        <input className='input-email' placeholder='nome@dominio.com'></input>
+                        <input id='email' placeholder='nome@dominio.com'></input>
                         <Link className='cadastrar-telefone'>Usar número de telefone</Link>
                         <button type='submit' className='avancar-registro'>Avançar</button>
                     </form>

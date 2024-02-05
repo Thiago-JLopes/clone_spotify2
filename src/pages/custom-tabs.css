@@ -1,0 +1,48 @@
+/* custom-tabs.css */
+
+.react-tabs__tab {
+    position: relative;
+    list-style: none;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #555; /* Cor do texto da aba inativa */
+  }
+  
+  .react-tabs__tab--selected {
+    border: none;
+    background-color: transparent;
+    color: #1db954; /* Cor do texto da aba ativa */
+  }
+  
+  /* Adicione a linha indicadora sob a aba ativa */
+  .react-tabs__tab-list {
+    border-bottom: 2px solid transparent; /* Cor da linha indicadora */
+    position: relative;
+  }
+  
+  .react-tabs__tab-panel {
+    display: none;
+  }
+  
+  .react-tabs__tab-panel--selected {
+    display: block;
+  }
+  
+  /* Ajuste para remover os quadros brancos das abas */
+  .react-tabs__tab::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px; /* Altura da linha indicadora */
+    background-color: #1db954; /* Cor da linha indicadora */
+    transition: width 0.3s ease-in-out;
+    transform: translateX(-50%);
+  }
+  
+  .react-tabs__tab--selected::before {
+    width: 100%;
+  }
+  

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './style.css'
 import Home from "./pages/Home";    
 import Registro from "./pages/Registro";
+import RegistroSenha from "./pages/RegistroSenha";
 
 
 function App () {
@@ -12,6 +13,7 @@ function App () {
             <Routes>
                 <Route index element={<Home/>}/>
                 <Route path="registro" element={<Registro/>}/>
+                <Route path="registroForm" element={<RegistroSenha/>}/>
             </Routes>
         </BrowserRouter>
     );

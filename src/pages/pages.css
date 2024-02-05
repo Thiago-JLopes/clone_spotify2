@@ -163,7 +163,7 @@ footer > button {
 /**---------------------------------------FORMATAÇÃO PÁGINA DE REGISTRO-----------------------------**/
 .container-registro {
     background-color: rgb(19, 19, 19);
-    height: 100vh;
+    height: 150vh;
 }
 
 .logo-2 {
@@ -177,33 +177,33 @@ footer > button {
     width: 105px;
 }
 
-.form-email {
+.form-email, .form-registro {
     max-width: 300px;
     color: white;
 }
 
-.form-email h1{
+.form-email h1, .form-registro h1{
     font-size: 2.5rem;
     font-weight: 900;
     margin-bottom: 50px;
 }
 
-.form-email form {
+.form-email form, .form-registro form {
     display: flex;
     flex-direction: column;
 }
 
-.form-email form > input {
+.form-email form > input, .form-registro form > input, .data-nascimento input, .data-nascimento select{
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 8px;
     color: rgb(238, 238, 238);
     font-weight: 600;
-    height: 37px;
+    height: 32px;
     background-color: transparent;
 }
 
-.form-email form > a {
+.form-email form > a, .form-registro form > a {
     text-decoration: underline;
     color: #1db954;
 }
@@ -218,24 +218,52 @@ footer > button {
     cursor: pointer;
 }
 
-.form-email hr{
+.form-email hr, .form-registro hr{
     margin-top: 40px;
     margin-bottom: 30px;
 }
 
-.form-email span {
+.form-email span, .form-registro span {
     color: rgb(92, 92, 92);
 }
 
-.form-email span > a {
+.form-email span > a, .form-registro span > a {
     margin-left: 3px;
     color: white;
     text-decoration: underline;
     font-weight: 400;
+}
+.form-registro div {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.voltar{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .span-info {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+ form > p {
+    font-size: 0.9rem;
+ }
+
+#dia-nascimento{
+    width: 40px;
+    margin-right: 12px;
+ }
+
+#ano-nascimento {
+    width: 85px;
+    margin-left: 12px;
+}
+
+#mes-nascimento {
+    height: 50px;
 }
