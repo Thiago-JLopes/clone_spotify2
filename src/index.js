@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './style.css'
 import Home from "./pages/Home";    
 import Registro from "./pages/Registro";
-import RegistroSenha from "./pages/RegistroSenha";
+import RegistroForm from "./pages/RegistroForm";
 
 
 function App () {
@@ -13,7 +13,7 @@ function App () {
             <Routes>
                 <Route index element={<Home/>}/>
                 <Route path="registro" element={<Registro/>}/>
-                <Route path="registroForm" element={<RegistroSenha/>}/>
+                <Route path="registroForm" element={<RegistroForm/>}/>
             </Routes>
         </BrowserRouter>
     );

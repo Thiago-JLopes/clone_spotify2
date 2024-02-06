@@ -161,6 +161,12 @@ footer > button {
     cursor: pointer;
 }
 /**---------------------------------------FORMATAÇÃO PÁGINA DE REGISTRO-----------------------------**/
+.avisoErro {
+    font-size: small;
+    padding: 5px;
+    color: rgb(194, 10, 10);
+}
+
 .container-registro {
     background-color: rgb(19, 19, 19);
     height: 100%;
