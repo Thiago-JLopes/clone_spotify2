@@ -29,7 +29,7 @@ export default function RegistroForm() {
             <Tab>Termos e Condições</Tab>
           </TabList>
           <TabPanel>
-            <div className='form-registro'>
+            <div className='form-registro '>
               
               <div className='center-start'>
                 <button className='voltar'>
@@ -47,7 +47,7 @@ export default function RegistroForm() {
                 <p>1 número ou caractere especial (exemplo: # ? ! &)</p>
                 <p>10 caracteres</p>
                 
-                <button type='submit' className='avancar-registro'>Avançar</button>
+                <button type='submit' className='avancar-registro' style={{marginTop:"60px"}}>Avançar</button>
               </form>
 
               <span className='span-info' style={{fontSize:"x-small", marginTop:"20px"}}>
@@ -73,12 +73,12 @@ export default function RegistroForm() {
                 <span>Este nome aparecerá no seu perfil</span>
                 <input id='nome' type='text'></input>
 
-                <label style={{marginTop:"12px"}}>Data de nascimento</label>
+                <label style={{marginTop:"30px"}}>Data de nascimento</label>
                 <span style={{fontSize:"x-small"}}>Por que precisamos da sua data de nascimento?</span>
                 <Link style={{fontSize:"x-small"}}>Saiba mais</Link>
                 
-                <div className='data-nascimento center'>
-                  <input id='dia-nascimento'></input>
+                <div className='data-nascimento'>
+                  <input id='dia-nascimento' placeholder='dd'></input>
                   
                   <select id='mes-nascimento'>
                     <option value="">Mês</option>
@@ -96,21 +96,63 @@ export default function RegistroForm() {
                     <option value={12}>Dezembro</option>
                   </select>
 
-                  <input id='ano-nascimento'></input>
-
+                  <input id='ano-nascimento' placeholder='aaaa'></input>
                 </div>
                 
-                <label style={{marginTop:"12px"}}>Gênero</label>
-                  <span style={{fontSize:"x-small"}}>Usamos seu gênero para ajudar a personalizar nossas recomendações de conteúdo e anúncios pra você.</span>
-                  
-                <div>
-                  
+                <label>Gênero</label>
+                <span style={{fontSize:"x-small"}}>Usamos seu gênero para ajudar a personalizar nossas recomendações de conteúdo e anúncios pra você.</span>
+                
+                <div className='selecaoGenero'>
+                  <label>
+                    <input
+                      name='genero'
+                      type="radio"
+                      value="masculino"
+                    />
+                    Masculino
+                  </label>
+
+                  <label>
+                    <input
+                      name='genero'
+                      type="radio"
+                      value="feminino"
+                    />
+                    Feminino
+                  </label>
+
+                  <label>
+                    <input
+                      name='genero'
+                      type="radio"
+                      value="nao binario"
+                    />
+                    Não binário
+                  </label>
+
+                  <label>
+                    <input
+                      name='genero'
+                      type="radio"
+                      value="outro"
+                    />
+                    Outro
+                  </label>
+
+                  <label>
+                    <input
+                      name='genero'
+                      type="radio"
+                      value="prefiro nao dizer"
+                    />
+                    Prefiro não dizer
+                  </label>
                 </div>
 
                 <button type='submit' className='avancar-registro'>Avançar</button>
               </form>
 
-              <span className='span-info' style={{fontSize:"x-small", marginTop:"20px"}}>
+              <span className='span-info' style={{fontSize:"x-small", marginTop:"20px", marginBottom:"20px"}}>
                 <pre>This site is protected by reCAPTCHA and the Google</pre>
                 <pre>Privacy Policy and Terms of Service apply.</pre>
               </span>
@@ -118,20 +160,34 @@ export default function RegistroForm() {
           </TabPanel>
 
           <TabPanel>
-            {/* Conteúdo da Terceira Aba */}
-            <div className='form-email'>
-              <h1>Se inscreva e comece a curtir</h1>
+            {/*---------------------------- Conteúdo da Terceira Aba -------------------------------------*/}
+            <div className='form-registro'>
+              <form className='termosCondicoes'>
+                <label>
+                  <input
+                    type="checkbox"
+                  />
+                  Concordo com os Termos e Condições de Uso do Spotify
+                </label>
 
-              <form>
-                <label>Endereço de e-mail</label>
-                <input className='input-email' placeholder='nome@dominio.com'></input>
-                <Link className='cadastrar-telefone'>Usar número de telefone</Link>
-                <button type='submit' className='avancar-registro'>Avançar</button>
-              </form>
+                <label>
+                  <input
+                    type="checkbox"
+                  />
+                  Não quero receber mensagens de marketing do Spotify
+                </label>
 
-              <hr/>
-              <span className='center'>Já tem uma conta? <Link>Faça login aqui</Link>.</span> 
-              <span className='span-info' style={{fontSize:"x-small", marginTop:"20px"}}>
+                <label>
+                  <input
+                    type="checkbox"
+                  />
+                  Compartilhar meus dados cadastrais com os provedores de conteúdo do Spotify para fins de marketing
+                </label>
+
+                  <button type='submit' className='registro' style={{marginTop:"60px"}}>inscreva-se</button>
+                </form>
+
+              <span className='span-info' style={{fontSize:"x-small", marginTop:"20px", marginBottom:"20px"}}>
                 <pre>This site is protected by reCAPTCHA and the Google</pre>
                 <pre>Privacy Policy and Terms of Service apply.</pre>
               </span>
@@ -142,3 +198,4 @@ export default function RegistroForm() {
     </div>
   );
 }
+

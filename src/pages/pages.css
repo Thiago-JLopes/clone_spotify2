@@ -163,7 +163,8 @@ footer > button {
 /**---------------------------------------FORMATAÇÃO PÁGINA DE REGISTRO-----------------------------**/
 .container-registro {
     background-color: rgb(19, 19, 19);
-    height: 150vh;
+    height: 100%;
+    min-height: 100vh;
 }
 
 .logo-2 {
@@ -193,7 +194,7 @@ footer > button {
     flex-direction: column;
 }
 
-.form-email form > input, .form-registro form > input, .data-nascimento input, .data-nascimento select{
+.form-email form > input, .form-registro form > input, .data-nascimento input{
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 8px;
@@ -208,7 +209,7 @@ footer > button {
     color: #1db954;
 }
 
-.avancar-registro {
+.avancar-registro, .registro {
     margin-top: 22px;
     padding: 18px;
     border: none;
@@ -235,7 +236,7 @@ footer > button {
 }
 .form-registro div {
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-weight: 600;
 }
 
@@ -254,8 +255,14 @@ footer > button {
     font-size: 0.9rem;
  }
 
+.data-nascimento {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 #dia-nascimento{
-    width: 40px;
+    width: 48px;
     margin-right: 12px;
  }
 
@@ -266,4 +273,35 @@ footer > button {
 
 #mes-nascimento {
     height: 50px;
+    background-color: transparent;
+    color: white;
+}
+
+.selecaoGenero label {
+    font-weight: 300;
+    padding: 2px;
+    margin-right: 55px;
+}
+
+.selecaoGenero label > input {
+    margin-right: 5px;
+}
+
+.selecaoGenero label >input[type="radio"] {
+    background-color: transparent;
+}
+
+.termosCondicoes label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: rgb(36, 35, 35);
+    font-weight: 100;
+    font-size: medium;
+}
+
+.termosCondicoes label>input[type="checkbox"] {
+    margin-right: 12px;
 }
