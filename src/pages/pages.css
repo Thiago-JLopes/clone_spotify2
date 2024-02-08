@@ -242,7 +242,6 @@ footer > button {
 }
 .form-registro div {
     margin-top: 20px;
-    margin-bottom: 30px;
     font-weight: 600;
 }
 
@@ -286,7 +285,7 @@ footer > button {
 .selecaoGenero label {
     font-weight: 300;
     padding: 2px;
-    margin-right: 55px;
+    margin-right: 65px;
 }
 
 .selecaoGenero label > input {
