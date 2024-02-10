@@ -1,4 +1,4 @@
-const { Pool } = require('pg');
+const { Pool } = require('pg')();
 
 const pool = new Pool({
     user: 'tjlopes',
@@ -10,8 +10,9 @@ const pool = new Pool({
 
 console.log('Conectando ao banco de dados...');
 
+
 pool.on('error', (err) => {
-    console.error('Erro ao conectar ao banco de dados:', err);
+    console.log('Erro ao conectar ao banco de dados:', err);
 });
 
 module.exports = pool;

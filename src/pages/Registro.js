@@ -1,37 +1,39 @@
 import './pages.css';
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
-import { Link, useNavigate } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios'; // Importe o Axios
 
 export default function Registro() {
     const [email, setEmail] = useState('');
     const [msg, setMsg] = useState('');
     const navigate = useNavigate();
-    
+
     const validaEmail = async (event) => {
         event.preventDefault();
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        if(email === '' || !regex.test(email)) {
+        const regex = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/; // Expressão regular ajustada
+
+        if (email === '' || !regex.test(email.toLowerCase())) { // Convertendo o e-mail para minúsculas antes de validar
             setMsg('Esse e-mail é inválido. O formato correto é assim: exemplo@email.com');
             return;
         }
 
         try {
-            const response = await fetch(`/users/checkEmail?email=${email}`);
-            if (response.ok) {
-                // Email válido, redirecionar para a página de registro
+            const response = await axios.get(`http://localhost:3002/users/checkEmail?email=${email.toLocaleLowerCase()}`); // Use o Axios para fazer a requisição
+            if (response.status === 200) {
+                // Email não cadastrado
                 navigate(`/registroForm?email=${email}`);
             } else {
-                // Email já cadastrado
-                setMsg('Este e-mail já está cadastrado.');
+                // Outro status, tratar conforme necessário
+                console.error('Status da resposta inesperado:', response.status);
             }
         } catch (error) {
             console.error('Erro ao verificar o email:', error);
+            setMsg('Email já cadastrado')
         }
+        
     };
-    
-    
+
     return (
         <div className="container-registro">
             <div className="logo-2">
@@ -56,7 +58,7 @@ export default function Registro() {
                                 setMsg('');
                             }}
                         ></input>
-                        
+
                         <div className='avisoErro'>
                             {msg}
                         </div>
@@ -73,7 +75,7 @@ export default function Registro() {
                             <pre>Privacy Policy and Terms of Service apply.</pre>
                     </span>
                 </div>
-                
+
             </div>
         </div>
     );

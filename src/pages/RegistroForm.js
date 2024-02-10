@@ -10,6 +10,7 @@ import unChecked from '../assets/tick2.png'
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import { Link } from 'react-router-dom';
 import arrow from '../assets/lefth-chevron .png'
+import axios from 'axios';
 
 export default function RegistroForm() {
   const [email, setEmail] = useState('');
@@ -108,11 +109,31 @@ export default function RegistroForm() {
     setCompartilharDados(e.target.checked);
   };
 
-  const handleRegistroSubmit = (e) => {
+  const handleRegistroSubmit = async (e) => {
     e.preventDefault();
+  
     if (concordoTermos) {
-      // Faça o que for necessário para registrar o usuário
-      alert('Usuário registrado com sucesso!');
+      const dataNascimento = new Date(`${anoNascimento}-${mesNascimento}-${diaNascimento}`);
+      const userData = {
+        email,
+        senha,
+        nome,
+        dataNascimento,
+        genero
+      };
+    
+      try {
+        const response = await axios.post('http://localhost:3002/users/insertUser', userData);
+  
+        if (response.status === 200) {
+          alert('Usuário cadastrado com sucesso!');
+        } else {
+          alert('Erro ao cadastrar o usuário');
+        }
+      } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao cadastrar o usuário');
+      }
     } else {
       alert('Por favor, concorde com os termos antes de se inscrever.');
     }
