@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Registro from "./pages/Registro";
 import RegistroForm from "./pages/RegistroForm";
 import Login from "./pages/Login";
+import HomeUser from "./pages/HomeUser";
 
 
 function App () {
@@ -16,6 +17,7 @@ function App () {
                 <Route path='login' element={<Login/>}/>
                 <Route path="registro" element={<Registro/>}/>
                 <Route path="registroForm" element={<RegistroForm/>}/>
+                <Route path="homeUser" element={<HomeUser/>}/>
             </Routes>
         </BrowserRouter>
     );
