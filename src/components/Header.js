@@ -22,7 +22,7 @@ export default function Header () {
                 {/*Se o usuario nao estiver logado exibir */}
                 <div className='login-singUp center'>
                     <Link to={"registro"}><button className='singUp center'>Sing up</button></Link>
-                    <Link><button className='logIn center'>Log in</button></Link>
+                    <Link to={'login'}><button className='logIn center'>Log in</button></Link>
                 </div>
 
                 {/*Se o usuario estiver logado exibir */}

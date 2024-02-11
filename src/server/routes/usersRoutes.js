@@ -25,6 +25,25 @@ router.get('/checkEmail', async (req, res) => {
     }
 });
 
+router.get('/login', async (req,res) => {
+  const {email,senha} = req.query;
+
+  try {
+   const result = await pool.query('SELECT * FROM usuario WHERE email = $1 AND senha = $2', [email,senha]);
+   console.log(email, senha);
+    if(result.length > 0) {
+      // usuario encontrado
+      res.status(200).send('usuario encontrado');
+  } else {
+      console.log('Usuario não é cadastrado.')
+      res.sendStatus(400);
+  }
+  } catch (error) {
+    console.error('Erro ao verificar o email:', error);
+    res.status(500).send('Erro ao buscar usuario.');
+  }
+});
+
 router.post('/insertUser', async (req, res) => {
     const { email, senha, nome, dataNascimento, genero } = req.body;
 
