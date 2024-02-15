@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
-import './loginPage.css';
+import './style/loginPage.css';
+import './style/registro.css'
 import axios from 'axios';
 
 export default function Login () {
@@ -36,7 +37,7 @@ export default function Login () {
     }
     return (
         <div className="page-login">
-            <div className="logo-login center-start">
+            <div className="logo-login">
                 <Link to={'/'}><img src={logo} alt='logo'/></Link>
             </div>
 

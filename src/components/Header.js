@@ -1,4 +1,4 @@
-import './components.css'
+import './style/components.css'
 import { Link } from 'react-router-dom';
 import arrowLefth from '../assets/lefth-chevron .png'
 import arrowRight from '../assets/right-chevron.png'
@@ -7,7 +7,7 @@ import userDefault from '../assets/user(1).png'
 
 export default function Header () {
     return (
-        <div>
+        <div className='container-header'>
             <nav className='nav-bar'>
                 <div className='back-next'>
                     <button>
@@ -27,7 +27,7 @@ export default function Header () {
 
                 {/*Se o usuario estiver logado exibir */}
                 <div className='notificacao-perfil center'>
-                    <button className='center'>
+                    <button className='notification center'>
                         <img src={bell} alt='icon notification'/>
                     </button>
 

@@ -1,4 +1,5 @@
-import './pages.css';
+import './style/pages.css';
+import './style/registro.css'
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';

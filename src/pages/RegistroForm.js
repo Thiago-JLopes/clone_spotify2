@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useLocation } from 'react-router-dom';
 import 'react-tabs/style/react-tabs.css';
-import './custom-tabs.css';
-import './pages.css'; 
+import './style/custom-tabs.css';
+import './style/pages.css'; 
 
 import checked from '../assets/tick.png'
 import unChecked from '../assets/tick2.png'
@@ -150,10 +150,10 @@ export default function RegistroForm() {
           <TabList>
             <Tab disabled={tabIndex !== 0}>Crie um senha</Tab>
             <Tab disabled={tabIndex !== 1}>Fale de você</Tab>
-            <Tab disabled={tabIndex !== 2}>Termos e Condições</Tab>
+            <Tab disabled={tabIndex !== 2}>Termos</Tab>
           </TabList>
           <TabPanel>
-            <div className='form-registro '>
+            <div className='form-registro'>
               
               <div className='center-start'>
                 <button className='voltar' onClick={() => {window.history.back()}}>
@@ -163,7 +163,7 @@ export default function RegistroForm() {
               </div>
 
               <form>
-                <label>Senha</label>
+                <label style={{marginTop:'25px'}}>Senha</label>
                 <input id='senha' name={senha} type='password' onChange={(e) => {setSenha(e.target.value); verificaSenha(e.target.value)}} value={senha}></input>
                 
                 <span style={{color: "white", fontWeight: "bold", marginTop: "15px", marginBottom: "15px"}}>A senha deve ter pelo menos</span>
@@ -193,7 +193,7 @@ export default function RegistroForm() {
               </div>
 
               <form>
-                <label>Nome</label>
+                <label style={{marginTop:'25px'}}>Nome</label>
                 <span>Este nome aparecerá no seu perfil</span>
                 <input id='nome' name='nome' value={nome} type='text' onChange={(e) =>{setNome(e.target.value); setMsgName('')}}></input>
                 
@@ -232,55 +232,62 @@ export default function RegistroForm() {
                 <span style={{fontSize:"x-small"}}>Usamos seu gênero para ajudar a personalizar nossas recomendações de conteúdo e anúncios pra você.</span>
                 
                 <div className='selecaoGenero'>
-                  <label>
-                    <input
-                      name='genero'
-                      type="radio"
-                      value="homem"
-                      onChange={(e) => {setGenero(e.target.value); setMsgGenero('')}}
-                    />
-                    Homem
-                  </label>
+                  <div className='center-start'>
+                    <label>
+                      <input
+                        name='genero'
+                        type="radio"
+                        value="homem"
+                        onChange={(e) => {setGenero(e.target.value); setMsgGenero('')}}
+                      />
+                      Homem
+                    </label>
 
-                  <label>
-                    <input
-                      name='genero'
-                      type="radio"
-                      value="mulher"
-                      onChange={(e) => {setGenero(e.target.value); setMsgGenero('')}}
-                    />
-                    Mulher
-                  </label>
+                    <label>
+                      <input
+                        name='genero'
+                        type="radio"
+                        value="mulher"
+                        onChange={(e) => {setGenero(e.target.value); setMsgGenero('')}}
+                      />
+                      Mulher
+                    </label>
+                  </div>
 
-                  <label>
-                    <input
-                      name='genero'
-                      type="radio"
-                      value="naoBinario"
-                      onChange={(e) => {setGenero(e.target.value); setMsgGenero('')}}
-                    />
-                    Não binário
-                  </label>
+                  <div className='center-start'>
+                    <label>
+                      <input
+                        name='genero'
+                        type="radio"
+                        value="naoBinario"
+                        onChange={(e) => {setGenero(e.target.value); setMsgGenero('')}}
+                      />
+                      Não binário
+                    </label>
 
-                  <label>
-                    <input
-                      name='genero'
-                      type="radio"
-                      value="outro"
-                      onChange={(e) => {setGenero(e.target.value); setMsgGenero('')}}
-                    />
-                    Outro
-                  </label>
-
-                  <label>
-                    <input
-                      name='genero'
-                      type="radio"
-                      value="prefiroNaoDizer"
-                      onChange={(e) => {setGenero(e.target.value); setMsgGenero('')}}
-                    />
-                    Prefiro não dizer
-                  </label>
+                    <label>
+                      <input
+                        name='genero'
+                        type="radio"
+                        value="outro"
+                        onChange={(e) => {setGenero(e.target.value); setMsgGenero('')}}
+                      />
+                      Outro
+                    </label>
+                  </div>
+                  
+                  <div className='center-start'>
+                    <label>
+                      <input
+                        name='genero'
+                        type="radio"
+                        value="prefiroNaoDizer"
+                        onChange={(e) => {setGenero(e.target.value); setMsgGenero('')}}
+                      />
+                      Prefiro não dizer
+                    </label>
+                  </div>
+      
                 <span className='center-start' style={{color:"red"}}>{msgGenero}</span>
 
                 </div>
@@ -305,7 +312,7 @@ export default function RegistroForm() {
                 <span>Etapa 3 de 3</span>
               </div>
               
-              <form className='termosCondicoes' onSubmit={handleRegistroSubmit}>
+              <form className='termosCondicoes' onSubmit={handleRegistroSubmit} style={{marginTop:'25px'}}>
                 <label>
                   <input
                     type="checkbox"
