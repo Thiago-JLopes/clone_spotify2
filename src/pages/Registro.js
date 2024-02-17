@@ -13,13 +13,14 @@ export default function Registro() {
     const validaEmail = async (event) => {
         event.preventDefault();
         const regex = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/; // Expressão regular ajustada
-
+    
         if (email === '' || !regex.test(email.toLowerCase())) { // Convertendo o e-mail para minúsculas antes de validar
             setMsg('Esse e-mail é inválido. O formato correto é assim: exemplo@email.com');
             return;
         }
-
+    
         try {
+            
             const response = await axios.get(`http://localhost:3002/users/checkEmail?email=${email.toLocaleLowerCase()}`); // Use o Axios para fazer a requisição
             if (response.status === 200) {
                 // Email não cadastrado
@@ -30,10 +31,16 @@ export default function Registro() {
             }
         } catch (error) {
             console.error('Erro ao verificar o email:', error);
-            setMsg('Email já cadastrado')
+            if (error.response && error.response.data) {
+                // Se a resposta de erro contiver dados, use essa mensagem
+                setMsg(error.response.data);
+            } else {
+                // Caso contrário, use uma mensagem genérica
+                setMsg('Erro ao verificar o email. Por favor, tente novamente.');
+            }
         }
-        
     };
+    
 
     return (
         <div className="container-registro">

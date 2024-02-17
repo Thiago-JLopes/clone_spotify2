@@ -26,7 +26,7 @@ export default function Login () {
             const response = await axios.get(`http://localhost:3002/users/login?email=${email}&senha=${senha}`);
             
             if (response.status === 200) {
-                navigate(`/`);
+                navigate(`/homeUser`);
             } else {
                 // Outro status, tratar conforme necessário
                 console.error('Status da resposta inesperado:', response.status);

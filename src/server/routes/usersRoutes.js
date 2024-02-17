@@ -40,7 +40,7 @@ router.get('/login', async (req,res) => {
   }
   } catch (error) {
     console.error('Erro ao verificar o email:', error);
-    res.status(500).send('Erro ao buscar usuario.');
+    return res.status(500).send(`Erro ao verificar o email: ${error.message}`);
   }
 });
 

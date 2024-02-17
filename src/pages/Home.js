@@ -5,7 +5,6 @@ import iconHome from '../assets/house.png';
 import iconSearch from '../assets/search-interface-symbol.png';
 import iconSearch2 from '../assets/pesquisa-m.png';
 import iconLibrary from '../assets/library.png';
-import iconLibrary2 from '../assets/m-library.png';
 import iconPlus from '../assets/plus.png';
 import iconWWW from '../assets/globe.png';
 import Header from '../components/Header';

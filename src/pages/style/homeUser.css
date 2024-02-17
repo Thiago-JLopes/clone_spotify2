@@ -1,3 +1,7 @@
+.conteiner-user {
+    max-height: max-content;
+    overflow: hidden;
+}
 
 .conteiner-user-2 {
     display: flex;
@@ -5,58 +9,121 @@
 }
 
 .area-lateral {
-    margin: 8px;
-    height: 83vh;
+    margin-top: 8px;
+    margin-right: 5px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .search-home img {
+    padding-left: 18px;
     margin-top: 12px;
     margin-bottom: 15px;
 }
 
-.search-home, .user-library, .area-principal {
+.search-home, .user-library, .area-principal, .area-lateral {
     border-radius: 8px;
 }
 
-.search-home, .user-library {
+.search-home{
     background-color: rgba(26, 25, 25, 0.952);
     min-width: 4.3vw;
     margin-bottom: 8px;
 }
 
+
 .user-library {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 18px;
     overflow-y: auto; 
-    min-height: 65vh;
-    padding: 8px;
+    height: 100%;
     background-color: rgba(26, 25, 25, 0.952);
 }
 
 .area-principal {
-    background-color: rgba(73, 248, 204, 0.205);
+    background-color: #302f2f;
     margin-top: 8px;
-    margin-bottom: 8px;
-    margin-right: 8px;
-    height: 83vh;
+    margin-right: 5px;
+    padding-top: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 84vh;
     width: 100%;
-    padding-top: 5px;
 }
 
 .conteudo {
     overflow-y: auto; 
-    max-height: 75vh;
+    height: 100%;    
     margin-top: 8px;
     padding: 5px;
     background-color: rgba(26, 25, 25, 0.952);
-    min-height: calc(100% - 99px);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
 .player {
     position: absolute;
-    margin-top: 10px;
+    margin-top: 5px;
     width: 100%;
-    height: 11vh;
     color: rebeccapurple;
     background-color: rgb(185, 32, 32);
+}
+
+.menu-library {
+    margin-left: 12px;
+}
+
+.spanMenu {
+    color: rgb(194, 192, 192);
+    font-weight: 600;
+    font-size: 15px;
+    margin-left: 5px;
+    margin-right: 8vw;
+}
+
+.criar img {
+    margin-left: 3vw;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+.filterLibrary {
+    margin-top: 25px;
+    margin-right: 8px;
+    margin-bottom: 12px;
+}
+
+.filterLibrary1 button {
+    border: none;
+    border-radius: 15px;
+    font-weight: 900;
+    color: rgb(221, 221, 221);
+    background-color: #302f2f;
+    width: 78px;
+    padding: 9px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.filterLibrary1 button:hover {
+    background-color: #383838;
+}
+
+.filterLibrary2 span {
+    color: rgb(194, 192, 192);
+    font-weight: 500;
+    font-size: small;
+    margin-left: 22px;
+    margin-right: 5px;
+}
+
+.spanDescricaoTableResult {
+    color: rgb(194, 192, 192);
+    font-weight: 600;
+    font-size: small;
+    margin-right: 8px;
 }

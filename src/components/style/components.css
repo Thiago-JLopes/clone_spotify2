@@ -92,6 +92,7 @@
 }
 
 .menu button {
+    display: none;
     border: none;
     background-color: rgb(36, 36, 36);
     min-width: 50px;
@@ -108,8 +109,8 @@
         display: none;
     }
 
-    .menu-mobile {
-        display: block;
+    .menu-mobile, .menu button {
+        display: inline-block;
     }
 
     .menu {
