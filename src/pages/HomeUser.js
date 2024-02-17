@@ -22,8 +22,10 @@ export default function Homeuser () {
           <div className="user-library">
             <div className='lib-header centerStartColumn'>
               <div className='spaceBetweenRow'>
-                <img src={iconLibraryClose} alt='bibliotecaFechada' style={{width:'29px'}}/>
-                <span className='spanMenu'><pre>Your Library</pre></span>
+                <div className='spaceBetweenRow'>
+                  <img src={iconLibraryClose} alt='bibliotecaFechada' style={{width:'29px'}}/>
+                  <span className='spanMenu'><pre>Your Library</pre></span>
+                </div>
                 
                 <div className='menu-library spaceBetweenRow'>
                   <div className='criar spaceAround'>
@@ -56,11 +58,11 @@ export default function Homeuser () {
                   </div>
                   
                   <div className='spaceBetweenRow'>
-                    <div><span className='spanDescricaoTableResult'>Date of addition</span></div>
+                    <div style={{marginRight:'8vw'}}><span className='spanDescricaoTableResult'>Date of addition</span></div>
                     <div><span className='spanDescricaoTableResult'>You heard</span></div>
                   </div>
                 </div>
-                <hr></hr>
+                <div className='divisor1'></div>
               </div>
             </div>
           </div>

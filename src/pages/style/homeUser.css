@@ -9,6 +9,7 @@
 }
 
 .area-lateral {
+    min-width: 45vw;
     margin-top: 8px;
     margin-right: 5px;
     margin-left: 5px;
@@ -82,7 +83,6 @@
     font-weight: 600;
     font-size: 15px;
     margin-left: 5px;
-    margin-right: 8vw;
 }
 
 .criar img {
@@ -126,4 +126,10 @@
     font-weight: 600;
     font-size: small;
     margin-right: 8px;
+}
+
+.divisor1 {
+    margin-top: 5px;
+    margin-right: 8px;
+    border-bottom: 0.1rem solid gray;
 }
