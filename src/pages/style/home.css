@@ -107,13 +107,11 @@
 }
 
 footer {
+    padding: 8px;
     color: white;
     background: linear-gradient(to right, rgb(183, 43, 226), rgb(131, 63, 177), rgb(132, 196, 221));
     height: 70px;
     margin: 8px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 }
 
 footer > button {

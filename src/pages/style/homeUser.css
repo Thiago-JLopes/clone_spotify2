@@ -9,7 +9,6 @@
 }
 
 .area-lateral {
-    min-width: 45vw;
     margin-top: 8px;
     margin-right: 5px;
     margin-left: 5px;
@@ -29,8 +28,8 @@
 }
 
 .search-home{
+    padding-right: 18px;
     background-color: rgba(26, 25, 25, 0.952);
-    min-width: 4.3vw;
     margin-bottom: 8px;
 }
 
@@ -39,9 +38,14 @@
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 18px;
+    padding-right: 18px;
     overflow-y: auto; 
     height: 100%;
     background-color: rgba(26, 25, 25, 0.952);
+}
+
+.lib-header {
+    margin-top: 4px;
 }
 
 .area-principal {
@@ -71,11 +75,10 @@
     margin-top: 5px;
     width: 100%;
     color: rebeccapurple;
-    background-color: rgb(185, 32, 32);
 }
 
 .menu-library {
-    margin-left: 12px;
+    margin-left: 60px;
 }
 
 .spanMenu {
@@ -85,6 +88,10 @@
     margin-left: 5px;
 }
 
+.spanMenu:hover {
+    color: rgb(240, 234, 234);
+}
+
 .criar img {
     margin-left: 3vw;
     margin-right: 5px;
@@ -92,7 +99,7 @@
 }
 
 .filterLibrary {
-    margin-top: 25px;
+    margin-top: 20px;
     margin-right: 8px;
     margin-bottom: 12px;
 }
@@ -107,6 +114,7 @@
     padding: 9px;
     margin-right: 10px;
     cursor: pointer;
+    margin-bottom: 15px;
 }
 
 .filterLibrary1 button:hover {
@@ -133,3 +141,8 @@
     margin-right: 8px;
     border-bottom: 0.1rem solid gray;
 }
+
+.hideShow {
+    cursor: pointer;
+}
+

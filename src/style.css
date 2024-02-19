@@ -64,6 +64,10 @@ body {
     align-items: center;
 }
 
+.hiden {
+    display: none;
+}
+
 /* Estilizando a scrollbar no Chrome, Edge e Safari */
 ::-webkit-scrollbar {
     width: 12px; /* largura da scrollbar */

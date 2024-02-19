@@ -108,7 +108,7 @@ export default function Home() {
         </div>
       </div>
       {/* Rodapé */}
-      <footer>
+      <footer className='spaceBetweenRow'>
         <div>
           <h5>Preview of Spotify</h5>
           <p>Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</p>
