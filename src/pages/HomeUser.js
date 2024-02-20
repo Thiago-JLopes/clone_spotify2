@@ -5,16 +5,22 @@ import iconSearch from '../assets/search-interface-symbol.png'
 import iconLibraryClose from '../assets/library.png'
 import iconAdd from '../assets/plus.png'
 import arrowR from '../assets/arrow-to-right.png'
+import arrowL from '../assets/arrow-to-lefth.png'
 import iconFilter from '../assets/simbolo-de-interface-de-lista.png'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function Homeuser () {
 
   const [showLibrary, setShowLibrary] = useState(false);
+  const [mostrarMais, setMostrarMais] = useState(false);
 
   const hideAndShow = () => {
     setShowLibrary(!showLibrary);
-  }
+  };
+
+  const expandirBiblioteca = () => {
+    setMostrarMais(!mostrarMais);
+  };
 
   return (
     <div className="conteiner-user">
@@ -27,7 +33,7 @@ export default function Homeuser () {
             <div className='flex-start'><img src={iconSearch} alt='icon search' width={"27px"}/><span className={`${showLibrary ? 'spanMenu' : 'hiden'}`}>Look for</span></div>
           </div>
 
-          <div className="user-library">
+          <div className="user-library" style={{width: showLibrary && mostrarMais ? '42vw' : 'auto'}}>
             <div className='lib-header centerStartColumn'>
               <div className='spaceBetweenRow'>
                 <div className='hideShow spaceBetweenRow' onClick={hideAndShow}>
@@ -38,19 +44,19 @@ export default function Homeuser () {
                 <div className={`spaceBetweenRow ${showLibrary ? 'menu-library' : 'hiden'}`}>
                   <div className='criar spaceAround'>
                     <img src={iconAdd} alt='adicionar' style={{width:'20px'}} />
-                    <img src={arrowR} alt='mostrar mais' style={{width:'22px'}}/>
+                    <img src={mostrarMais ? arrowL : arrowR} alt='mostrar mais' style={{width:'22px'}} onClick={expandirBiblioteca}/>
                   </div>
                 </div>
               </div>
 
               <div className='containerFilter'>
-                <div className={`${showLibrary ? 'filterLibrary' : 'hiden'}`}>
+                <div className={`${showLibrary ? 'filterLibrary' : 'hiden'} ${mostrarMais ? 'spaceBetweenRow' : ''}`}>
                   <div className='filterLibrary1'>
                     <button>Playlists</button>
                     <button>Artists</button>
                   </div>
 
-                  <div className='spaceBetweenRow'>
+                  <div className={'spaceBetweenRow'} style={{marginTop: !mostrarMais ? '18px' : '0px'}}>
                     <img src={iconSearch} alt='buscar em sua biblioteca' style={{width:'16px', marginLeft: '5px'}}/>
                     <div className='filterLibrary2 flex-start'>
                       <span>Recent</span>
@@ -59,10 +65,9 @@ export default function Homeuser () {
                   </div>
                 </div>
                 
-                <div className='hiden'>
-                  <div>
+                <div className={`${mostrarMais && showLibrary ? 'spaceBetweenRow' : 'hiden'}`}>
+                  <div style={{marginRight:'5vw'}}>
                     <span className='spanDescricaoTableResult'>Title</span> 
-                    
                   </div>
                   
                   <div className='spaceBetweenRow'>
@@ -70,7 +75,7 @@ export default function Homeuser () {
                     <div><span className='spanDescricaoTableResult'>You heard</span></div>
                   </div>
                 </div>
-                <div className='hiden'></div>
+                <div className={`${mostrarMais && showLibrary ? 'divisor1' : 'hiden'}`}></div>
               </div>
             </div>
           </div>
