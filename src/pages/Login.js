@@ -3,8 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import './style/loginPage.css';
 import './style/registro.css';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../server/infra/firebase'; 
+
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -12,7 +11,7 @@ export default function Login() {
     const [msg, setMsg] = useState('');
     const [msgErro, setMsgErro] = useState('');
     const navigate = useNavigate();
-
+    
     const realizarLogin = async (event) => {
         event.preventDefault();
         const regex = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/;
@@ -23,7 +22,7 @@ export default function Login() {
         }
 
         try {
-            await signInWithEmailAndPassword(auth, email, senha);
+            //await signInWithEmailAndPassword(auth, email, senha);
             console.log(email)
             navigate(`/homeUser`);
         } catch (error) {

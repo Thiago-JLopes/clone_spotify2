@@ -3,7 +3,7 @@ import './style/registro.css'
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import axios from 'axios'; // Importe o Axios
+
 
 export default function Registro() {
     const [email, setEmail] = useState('');
@@ -20,24 +20,18 @@ export default function Registro() {
         }
     
         try {
-            
-            const response = await axios.get(`http://localhost:3002/users/checkEmail?email=${email.toLocaleLowerCase()}`); // Use o Axios para fazer a requisição
-            if (response.status === 200) {
+            // Verifica se o email já está cadastrado
+            const methods = 0;
+            if (methods === 0) {
                 // Email não cadastrado
                 navigate(`/registroForm?email=${email}`);
             } else {
-                // Outro status, tratar conforme necessário
-                console.error('Status da resposta inesperado:', response.status);
+                // Email já cadastrado
+                setMsg('Esse e-mail já está cadastrado. Por favor, use outro.');
             }
         } catch (error) {
             console.error('Erro ao verificar o email:', error);
-            if (error.response && error.response.data) {
-                // Se a resposta de erro contiver dados, use essa mensagem
-                setMsg(error.response.data);
-            } else {
-                // Caso contrário, use uma mensagem genérica
-                setMsg('Erro ao verificar o email. Por favor, tente novamente.');
-            }
+            setMsg('Erro ao verificar o email. Por favor, tente novamente.');
         }
     };
     

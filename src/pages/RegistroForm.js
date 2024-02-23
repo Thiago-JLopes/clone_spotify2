@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import 'react-tabs/style/react-tabs.css';
 import './style/custom-tabs.css';
 import './style/pages.css'; 
@@ -10,20 +11,10 @@ import unChecked from '../assets/tick2.png'
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import { Link } from 'react-router-dom';
 import arrow from '../assets/lefth-chevron .png'
-import axios from 'axios';
+import { insertUser } from '../services/controller/controllerUser';
 
 export default function RegistroForm() {
   const [email, setEmail] = useState('');
-  const location = useLocation();
-
-  useEffect(() => {
-      const searchParams = new URLSearchParams(location.search);
-      const emailParam = searchParams.get('email');
-      if (emailParam) {
-          setEmail(emailParam);
-      }
-  }, [location]);
-
   const [tabIndex, setTabIndex] = useState(0);
   const [senha, setSenha] = useState('');
   const [hasLetter, setHasLetter] = useState(false);
@@ -40,6 +31,20 @@ export default function RegistroForm() {
   const [msgName, setMsgName] = useState('');
   const [msgDate, setMsgDate] = useState('');
   const [msgGenero, setMsgGenero] = useState('');
+  const [msgCadastro, setMsgCadastro] = useState('');
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+      const searchParams = new URLSearchParams(location.search);
+      const emailParam = searchParams.get('email');
+      if (emailParam) {
+          setEmail(emailParam);
+      }
+  }, [location]);
+
+  
 
   const regexLetter = /[a-zA-Z]/;
   const regexNumberOrSpecialChar = /[0-9!@#$%^&*()_+|~=`{}[\]:";'<>?,./\\]/;
@@ -112,7 +117,7 @@ export default function RegistroForm() {
   const handleRegistroSubmit = async (e) => {
     e.preventDefault();
   
-    if (concordoTermos) {
+    if (concordoTermos && compartilharDados && naoQueroMensagens) {
       const dataNascimento = new Date(`${anoNascimento}-${mesNascimento}-${diaNascimento}`);
       const userData = {
         email,
@@ -121,22 +126,20 @@ export default function RegistroForm() {
         dataNascimento,
         genero
       };
-    
+
       try {
-        const response = await axios.post('http://localhost:3002/users/insertUser', userData);
-  
-        if (response.status === 200) {
-          alert('Usuário cadastrado com sucesso!');
-        } else {
-          alert('Erro ao cadastrar o usuário');
-        }
+        await insertUser(userData);
+        navigate('/homeUser') 
       } catch (error) {
+        setMsgCadastro('Ops! Algo deu errado. Tente de novo ou consulte a nossa seção de ajuda.');
         console.error('Erro:', error);
-        alert('Erro ao cadastrar o usuário');
+
       }
     } else {
-      alert('Por favor, concorde com os termos antes de se inscrever.');
+      setMsgCadastro('Por favor, concorde com os termos antes de se inscrever.');
+      return;
     }
+
   };
 
   return (
@@ -311,7 +314,7 @@ export default function RegistroForm() {
                 </button>
                 <span>Etapa 3 de 3</span>
               </div>
-              
+              <div style={{color: 'red'}}>{msgCadastro}</div>
               <form className='termosCondicoes' onSubmit={handleRegistroSubmit} style={{marginTop:'25px'}}>
                 <label>
                   <input

@@ -1,5 +1,5 @@
 import './style/home.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import iconHome from '../assets/house.png';
 import iconSearch from '../assets/search-interface-symbol.png';
@@ -11,6 +11,9 @@ import Header from '../components/Header';
 import iconSpotify from '../assets/spotify-big-logo.png'
 
 export default function Home() {
+
+  const navigate = useNavigate();
+
   return (
     <div className='container'>
       <div className='container1'>
@@ -114,7 +117,7 @@ export default function Home() {
           <p>Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</p>
         </div>
 
-        <button>Sign up free</button>
+        <button onClick={() =>{navigate(`/registro`)}}>Sign up free</button>
       </footer>
     </div>
   );
