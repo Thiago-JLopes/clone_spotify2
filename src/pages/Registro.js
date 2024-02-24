@@ -24,7 +24,7 @@ export default function Registro() {
             const methods = 0;
             if (methods === 0) {
                 // Email não cadastrado
-                navigate(`/registroForm?email=${email}`);
+                navigate(`/registroForm`, {state: {email: email}});
             } else {
                 // Email já cadastrado
                 setMsg('Esse e-mail já está cadastrado. Por favor, use outro.');
