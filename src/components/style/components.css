@@ -131,10 +131,6 @@
         display: none;
     }
 
-    .menu-mobile, .menu button {
-        display: inline-block;
-    }
-
     .menu {
         margin-top: 0;
     }
