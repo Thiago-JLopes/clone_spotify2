@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../services/server/firebase';
+
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import './style/loginPage.css';
 import './style/registro.css';
@@ -22,9 +25,23 @@ export default function Login() {
         }
 
         try {
-            //await signInWithEmailAndPassword(auth, email, senha);
-            console.log(email)
-            navigate(`/homeUser`);
+            await signInWithEmailAndPassword(auth, email, senha)
+            .then((userCredential) => {
+                //const user = userCredential.user;
+            })
+            .catch((error) =>{
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                console.log(`Algo deu errado: ${errorCode} ${errorMessage}`);
+            });
+            
+            if(auth.currentUser) {
+                navigate(`/homeUser`);
+            } else {
+                setMsgErro('Ops! Algo deu errado. Tente de novo ou consulte a nossa seção de ajuda.');
+            }
+
         } catch (error) {
             setMsgErro('Ops! Algo deu errado. Tente de novo ou consulte a nossa seção de ajuda.');
         }

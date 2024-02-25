@@ -128,21 +128,10 @@ export default function RegistroForm() {
       };
 
       try {
-        await insertUser(userData);
-        createUserWithEmailAndPassword(auth, userData.email, userData.senha)
-        .then((userCredential) => {
-          //sing in
-          //const user = userCredential.user;
-          //console.log(user);
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMenssage = error.menssage;
-
-          console.log(`Algo deu errado: ${errorCode} ${errorMenssage}`);
-        });
+        const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.senha);
+        const user = userCredential.user;
+        await insertUser(user.uid, userData);
         navigate('/homeUser');
-         
       } catch (error) {
         setMsgCadastro('Ops! Algo deu errado. Tente de novo ou consulte a nossa seção de ajuda.');
         console.error('Erro:', error);

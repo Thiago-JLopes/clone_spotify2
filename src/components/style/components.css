@@ -16,10 +16,6 @@
     justify-content: space-around;
 }
 
-.login-singUp, .singUp {
-    display: none;
-}
-
 .back-next button{
     width: 35px;
     height: 35px;
@@ -102,6 +98,32 @@
     color: white;
     font-weight: 600;
     cursor: pointer;
+}
+
+.userOptions {
+    position: absolute;
+    background-color: rgb(41, 40, 40);
+    color: white;
+    margin-top: 38vh;
+    margin-right: 15vw;
+    width: 18vw;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.userOptions span {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    cursor: pointer;
+}
+
+.userOptions span:hover {
+    background-color: rgb(78, 77, 77);
+}
+
+.divisor {
+    margin-top: 5px;
+    border-bottom: 0.1rem solid gray;
 }
 
 @media screen and (max-width:575.98px) {
