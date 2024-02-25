@@ -107,17 +107,19 @@
 #dia-nascimento{
     width: 48px;
     margin-right: 12px;
+    color: rgb(105, 103, 103);
  }
 
 #ano-nascimento {
     width: 85px;
     margin-left: 12px;
+    color: rgb(105, 103, 103);
 }
 
 #mes-nascimento {
     height: 50px;
     background-color: transparent;
-    color: white;
+    color: rgb(105, 103, 103);
 }
 
 .selecaoGenero label {

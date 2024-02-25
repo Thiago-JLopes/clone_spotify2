@@ -88,12 +88,32 @@ export default function Homeuser () {
           <div className='conteudo'>
             
           </div>
-        
+
+          <div className='container3'>
+              <div className='player-mobile'></div>
+              
+              <div className='nav-bar-mobile'>
+                <div className='menu-item spaceBetweenColumn'>
+                  <img src={iconHome} alt='inicio'/>
+                  <span>Home</span>
+                </div>
+
+                <div className='menu-item spaceBetweenColumn'>
+                  <img src={iconSearch} alt='buscar'/>
+                  <span>Search</span>
+                </div>
+
+                <div className='menu-item spaceBetweenColumn'>
+                  <img src={iconLibraryClose} alt='sua biblioteca' />
+                  <span>Your Library</span>
+                </div>
+              </div>
+
+            </div>
         </div>
       
       </div>
-      
-      <div className='player'>teste</div>
+        <div className='player'>teste</div>
     </div>
   );
 }

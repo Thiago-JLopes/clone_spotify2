@@ -68,6 +68,9 @@
     background-color: rgba(26, 25, 25, 0.952);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .player {
@@ -145,4 +148,42 @@
 .hideShow {
     cursor: pointer;
 }
+
+.container3 {
+    display: none;
+}
+
+@media screen and (max-width:575.98px) {
+    .area-lateral, .player {
+        display: none;
+    }
+
+    .area-principal {
+        height: 99vh;
+    }
+
+    .conteudo {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .container3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        background-color: rgba(26, 25, 25, 0.952);
+        margin-bottom: 2px;
+
+    }
+
+    .nav-bar-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        color: white;
+    }
+}
+
 

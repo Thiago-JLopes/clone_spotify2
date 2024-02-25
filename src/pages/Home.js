@@ -3,12 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import iconHome from '../assets/house.png';
 import iconSearch from '../assets/search-interface-symbol.png';
-import iconSearch2 from '../assets/pesquisa-m.png';
 import iconLibrary from '../assets/library.png';
 import iconPlus from '../assets/plus.png';
 import iconWWW from '../assets/globe.png';
 import Header from '../components/Header';
-import iconSpotify from '../assets/spotify-big-logo.png'
 
 export default function Home() {
 
@@ -97,17 +95,6 @@ export default function Home() {
         <div className='home-area'>
           <Header/>
 
-
-          <div className='menu-mobile'>
-            <nav>
-              <ul className='nav-bar'>
-                <li className='center-col'> <img src={iconHome} alt='icone inicio'/> <span>Início</span></li>
-                <li className='center-col'> <img src={iconSearch2} alt='busca'/> <span>Buscar</span></li>
-                <li className='center-col'> <img src={iconLibrary} alt='icone biblioteca' /> <span>Sua Biblioteca</span> </li>
-                <li className='center-col'> <img src={iconSpotify} alt='premium' /> <span>Premium</span> </li>
-              </ul>
-            </nav>
-          </div>
         </div>
       </div>
       {/* Rodapé */}

@@ -88,7 +88,6 @@
 }
 
 .menu button {
-    display: none;
     border: none;
     background-color: rgb(36, 36, 36);
     min-width: 50px;
@@ -133,6 +132,7 @@
 
     .menu {
         margin-top: 0;
+        margin-right: 10vw;
     }
     
     .menu button {
@@ -143,6 +143,31 @@
 
     .container-header {
         display: flex;
+        justify-content: flex-end;
         align-items: center;
+    }
+
+    .userOptions {
+        position: absolute;
+        background-color: rgb(41, 40, 40);
+        color: white;
+        margin-top: 32vh;
+        margin-left: 23vw;
+        width: 35vw;
+        border-radius: 3px;
+        padding: 3px;
+    }
+}
+
+
+@media screen and (max-width: 875.98px){
+    .userOptions {
+        position: absolute;
+        background-color: rgb(41, 40, 40);
+        color: white;
+        margin-top: 220px;
+        margin-right: 15vw;
+        border-radius: 3px;
+        padding: 3px;
     }
 }

@@ -116,11 +116,11 @@ footer {
 
 footer > button {
     border: none;
-    width: 100px;
-    height: 45px;
     border-radius: 20px;
     margin: 20px;
     margin-right: 40px;
+    min-width: 18vw;
+    padding: 8px;
     font-size: medium;
     cursor: pointer;
 }
@@ -162,6 +162,14 @@ footer > button {
 
     .menu-lateral-home, footer {
         display: none;
+    }
+    
+    footer, footer > button {
+        font-size: x-small;
+    }
+
+    footer > button {
+        min-width: 20vw;
     }
 
 }

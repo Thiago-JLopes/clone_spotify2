@@ -42,52 +42,57 @@ export default function Header () {
     }
 
     return (
-        <div className='container-header'>
-            <nav className='nav-bar'>
-                <div className='back-next'>
-                    <button>
-                        <img src={arrowLefth} alt='voltar'/>
-                    </button>
+        <>    
+            <div className='container-header'>
+                <nav className='nav-bar'>
+                    <div className='back-next'>
+                        <button>
+                            <img src={arrowLefth} alt='voltar'/>
+                        </button>
+                        
+                        <button>
+                            <img src={arrowRight} alt='proximo' />
+                        </button>
+                    </div>
                     
-                    <button>
-                        <img src={arrowRight} alt='proximo' />
-                    </button>
-                </div>
-                
-                {/*Se o usuario nao estiver logado exibir */}
-                <div className={`login-singUp ${usuarioLogado ? 'hiden' : 'center'}`}>
-                    <Link to={"/registro"}><button className='singUp center'>Sing up</button></Link>
-                    <Link to={'/login'}><button className='logIn center'>Log in</button></Link>
-                </div>
-
-                {/*Se o usuario estiver logado exibir */}
-                <div className={`notificacao-perfil ${!usuarioLogado ? 'hiden' : 'center'}`}>
-                    <button className='notification center'>
-                        <img src={bell} alt='icon notification'/>
-                    </button>
-
-                    <button className='perfil center' onClick={() => {setShowMenuUsuario(!showMenuUsuario)}} >
-                       <img src={userDefault} alt='imagem perfil' />
-                    </button>
-                    
-                    <div className={`userOptions ${showMenuUsuario ? 'spaceBetweenColumn2' : 'hiden'}`}>
-                        <span>Conta</span>
-                        <span>Perfil</span>
-                        <span>Configurações</span>
-                        <div className='divisor'></div>
-                        <span onClick={logOut}>Sair</span>
+                    {/*Se o usuario nao estiver logado exibir */}
+                    <div className={`login-singUp ${usuarioLogado ? 'hiden' : 'center'}`}>
+                        <Link to={"/registro"}><button className='singUp center'>Sing up</button></Link>
+                        <Link to={'/login'}><button className='logIn center'>Log in</button></Link>
                     </div>
 
-                </div>
-            </nav>
+                    {/*Se o usuario estiver logado exibir */}
+                    <div className={`notificacao-perfil ${!usuarioLogado ? 'hiden' : 'center'}`}>
+                        <button className='notification center'>
+                            <img src={bell} alt='icon notification'/>
+                        </button>
 
-            {/*Se o usuario estiver logado exibir */}
-            <div className='menu'>
-                <button>All</button>
-                <button>Music</button>
-                <button>Podcasts</button>
+                        <button className='perfil center' onClick={() => {setShowMenuUsuario(!showMenuUsuario)}} >
+                        <img src={userDefault} alt='imagem perfil' />
+                        </button>
+                        
+                        <div className={`userOptions ${showMenuUsuario ? 'spaceBetweenColumn2' : 'hiden'}`}>
+                            <span>Conta</span>
+                            <span>Perfil</span>
+                            <span>Configurações</span>
+                            <div className='divisor'></div>
+                            <span onClick={logOut}>Sair</span>
+                        </div>
+
+                    </div>
+                </nav>
+
+                {/*Se o usuario estiver logado exibir */}
+                <div className={`${usuarioLogado ? 'menu' : 'hiden'}`}>
+                    <button>All</button>
+                    <button>Music</button>
+                    <button>Podcasts</button>
+                </div>
             </div>
 
-        </div>
+            <div className='container-mobile'>
+
+            </div>
+        </>
     );
 }
