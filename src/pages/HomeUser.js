@@ -9,10 +9,12 @@ import arrowL from '../assets/arrow-to-lefth.png'
 import iconFilter from '../assets/simbolo-de-interface-de-lista.png'
 import { useState } from 'react';
 
+
 export default function Homeuser () {
 
   const [showLibrary, setShowLibrary] = useState(false);
   const [mostrarMais, setMostrarMais] = useState(false);
+
 
   const hideAndShow = () => {
     setShowLibrary(!showLibrary);

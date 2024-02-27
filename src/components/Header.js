@@ -1,5 +1,5 @@
 import { auth } from '../services/server/firebase';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import './style/components.css'
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,33 +8,17 @@ import arrowRight from '../assets/right-chevron.png'
 import bell from '../assets/bell.png'
 import userDefault from '../assets/user(1).png'
 import { signOut } from 'firebase/auth';
-import { getUserData } from '../services/controller/controllerUser';
 
 export default function Header () {
-    const [usuarioLogado, setUsuarioLogado] = useState(false);
+    const [usuarioLogado, setUsuarioLogado] = useState(localStorage.getItem('usuarioLogado'));
     const [showMenuUsuario, setShowMenuUsuario] = useState(false);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const user = auth.currentUser;
-        if (user) {
-            const uid = user.uid;
-            setUsuarioLogado(true);  
-            getUserData(uid)
-                .then(userData => {
-                    console.log(userData.genero);
-                })
-                .catch(error => {
-                    console.error("Erro ao obter dados do usuário:", error);
-                });
-        } else {
-            navigate('/')
-        } 
-    }, [navigate]);
 
     const logOut = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
+            localStorage.setItem('usuarioLogado', false);
+            setUsuarioLogado(false);
             navigate('/');
         }).catch((error) => {
             console.log(error);

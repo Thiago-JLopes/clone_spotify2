@@ -1,93 +1,90 @@
-#Spotify Clone
+## Spotify Clone 🎵
 
-Este é um projeto de clone do Spotify, desenvolvido para explorar várias tecnologias e conceitos, incluindo React.js, Node.js (com Express), PostgreSQL e integração com a Spotify API.
-Sumário
+Este é um projeto de clone do Spotify, utilizando Firestore e Firebase Authentication, eliminando o uso do PostgreSQL e com hospedagem planejada no Vercel, além da inclusão da API do Spotify para integração.
 
-    Introdução
-    Funcionalidades
-    Pré-requisitos
-    Instalação
-    Configuração
-    Uso
-    Contribuição
-    Licença
+### Introdução 🚀
 
-###Introdução
+O objetivo deste projeto é criar um clone básico do Spotify, proporcionando uma experiência de usuário semelhante à do serviço original. O projeto é desenvolvido usando React.js para o front-end, Node.js (com Express) para o back-end, e integração com a Firestore para banco de dados e Firebase Authentication para autenticação de usuários. Além disso, a Spotify API é utilizada para integração com serviços de streaming de música.
 
-O objetivo deste projeto é criar um clone básico do Spotify, proporcionando uma experiência de usuário semelhante à do serviço original. O projeto é desenvolvido usando React.js para o front-end, Node.js (com Express) para o back-end, PostgreSQL como banco de dados e a Spotify API para a integração com serviços de streaming de música.
+### Funcionalidades ⭐
 
-###Funcionalidades
+- Listagem de músicas recomendadas, novos lançamentos e playlists populares.
+- Reprodução de músicas com funcionalidades de reprodução, pausa, avanço e retrocesso.
+- Pesquisa avançada e filtros para encontrar músicas, artistas e playlists específicos.
+- Gerenciamento de playlists, permitindo aos usuários criar, editar e excluir suas próprias playlists.
 
-    Listagem de músicas recomendadas, novos lançamentos e playlists populares.
-    Reprodução de músicas com funcionalidades de reprodução, pausa, avanço e retrocesso.
-    Pesquisa avançada e filtros para encontrar músicas, artistas e playlists específicos.
-    Gerenciamento de playlists, permitindo aos usuários criar, editar e excluir suas próprias playlists.
-
-###Pré-requisitos
+### Pré-requisitos 📋
 
 Antes de começar, certifique-se de ter os seguintes requisitos instalados:
 
-    Node.js
-    npm (ou yarn)
-    PostgreSQL
+- Node.js
+- npm (ou yarn)
+- Conta no Firebase para Firestore e Firebase Authentication
 
-###Instalação
+### Instalação 💻
 
-    Clone o repositório:
+1. Clone o repositório:
 
-    bash
+    ```bash
+    git clone https://github.com/seu-usuario/spotify-clone.git
+    ```
 
-git clone https://github.com/seu-usuario/spotify-clone.git
+2. Acesse o diretório do projeto:
 
-Acesse o diretório do projeto:
+    ```bash
+    cd spotify-clone
+    ```
 
-bash
+3. Instale as dependências do front-end:
 
-cd spotify-clone
+    ```bash
+    cd client
+    npm install
+    ```
 
-Instale as dependências do front-end:
+4. Instale as dependências do back-end:
 
-bash
-
-cd client
-npm install
-
-Instale as dependências do back-end:
-
-bash
-
+    ```bash
     cd ../server
     npm install
+    ```
 
-###Configuração
+### Configuração 🔧
 
-    Crie um banco de dados PostgreSQL e configure suas credenciais no arquivo server/config/db.js.
+1. Configure o Firebase:
 
-    Obtenha as credenciais da Spotify API em Spotify for Developers.
-        Configure as credenciais no arquivo server/config/spotifyConfig.js.
+   - Crie um projeto no Firebase.
+   - Ative o Firestore e o Firebase Authentication.
+   - Configure suas credenciais no projeto.
 
-###Uso
+2. Configure a API do Spotify:
 
-    Inicie o servidor back-end:
+   - Obtenha as credenciais da Spotify API em [Spotify for Developers](https://developer.spotify.com/).
+   - Configure as credenciais no arquivo `serve/config/spotifyConfig.js`.
 
-    bash
+### Uso 🚦
 
-cd server
-npm start
+1. Inicie o servidor back-end:
 
-Inicie o servidor front-end:
+    ```bash
+    cd server
+    npm start
+    ```
 
-bash
+2. Inicie o servidor front-end:
 
+    ```bash
     cd client
     npm start
+    ```
 
-    Acesse o aplicativo em http://localhost:3000.
+3. Acesse o aplicativo em [http://localhost:3000](http://localhost:3000).
 
-###Contribuição
+### Visualização 🎉
+
+Você pode visualizar o meu projeto hospedado no Vercel [aqui](https://clone-spotify2-zeta.vercel.app/).
+
+### Contribuição 🤝
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir problemas (issues) e enviar pull requests para melhorar este projeto.
 
-###Licença
-
-Este projeto é licenciado sob a MIT License.

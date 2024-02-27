@@ -2,6 +2,7 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore'; 
 import { db } from '../server/firebase';
 
+
 const insertUser = async (authId, userData) => {
   try {
     // Use o ID de autenticação como ID do documento
