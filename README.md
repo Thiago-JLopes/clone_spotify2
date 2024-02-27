@@ -4,7 +4,8 @@ Este é um projeto de clone do Spotify, utilizando Firestore e Firebase Authenti
 
 ### Introdução 🚀
 
-O objetivo deste projeto é criar um clone básico do Spotify, proporcionando uma experiência de usuário semelhante à do serviço original. O projeto é desenvolvido usando React.js para o front-end, Node.js (com Express) para o back-end, e integração com a Firestore para banco de dados e Firebase Authentication para autenticação de usuários. Além disso, a Spotify API é utilizada para integração com serviços de streaming de música.
+O objetivo deste projeto é criar um clone básico do Spotify, proporcionando uma experiência de usuário semelhante à do serviço original. O projeto é desenvolvido usando React.js para o front-end, integração com a Firestore para banco de dados e Firebase Authentication para autenticação de usuários. Além disso, a Spotify API é utilizada para integração com serviços de streaming de música.
+
 
 ### Funcionalidades ⭐
 
