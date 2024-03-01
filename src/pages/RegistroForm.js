@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../database/firebase';
 
 import 'react-tabs/style/react-tabs.css';
@@ -131,7 +131,25 @@ export default function RegistroForm() {
         const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.senha);
         const user = userCredential.user;
         await insertUser(user.uid, userData);
-        navigate('/homeUser');
+        await signInWithEmailAndPassword(auth, userData.email, userData.senha)
+        .then(() => {
+
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
+
+        if(auth.currentUser) {
+          const tk = await auth.currentUser.getIdToken();
+          localStorage.setItem('token', tk);
+          setToken(tk);
+          navigate(`/homeUser`);
+
+        } else {
+            setMsgCadastro('Ops! Algo deu errado. Tente de novo ou consulte a nossa seção de ajuda.');
+        }
       } catch (error) {
         setMsgCadastro('Ops! Algo deu errado. Tente de novo ou consulte a nossa seção de ajuda.');
         console.error('Erro:', error);
