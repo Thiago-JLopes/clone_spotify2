@@ -1,6 +1,6 @@
 // controllers
 import { doc, getDoc, setDoc } from 'firebase/firestore'; 
-import { db } from '../server/firebase';
+import { db } from '../../database/firebase';
 
 
 const insertUser = async (authId, userData) => {

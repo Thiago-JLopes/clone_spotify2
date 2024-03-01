@@ -1,23 +1,30 @@
-import { auth } from '../services/server/firebase';
-import { useState } from 'react';
+import { auth } from '../database/firebase';
+import { useEffect, useState } from 'react';
+import { getIdToken, signOut } from 'firebase/auth';
 
-import './style/components.css'
+import './style/components.css';
 import { Link, useNavigate } from 'react-router-dom';
 import arrowLefth from '../assets/lefth-chevron .png'
-import arrowRight from '../assets/right-chevron.png'
-import bell from '../assets/bell.png'
-import userDefault from '../assets/user(1).png'
-import { signOut } from 'firebase/auth';
+import arrowRight from '../assets/right-chevron.png';
+import bell from '../assets/bell.png';
+import userDefault from '../assets/user(1).png';
 
 export default function Header () {
-    const [usuarioLogado, setUsuarioLogado] = useState(localStorage.getItem('usuarioLogado'));
+    const [usuarioLogado, setUsuarioLogado] = useState(false);
     const [showMenuUsuario, setShowMenuUsuario] = useState(false);
     const navigate = useNavigate();
+    
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+
+        if(token) setUsuarioLogado(true);
+    },[]);
+
 
     const logOut = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
-            localStorage.setItem('usuarioLogado', false);
+            localStorage.removeItem('token');
             setUsuarioLogado(false);
             navigate('/');
         }).catch((error) => {
@@ -50,7 +57,7 @@ export default function Header () {
                         <button className='notification center'>
                             <img src={bell} alt='icon notification'/>
                         </button>
-
+                        
                         <button className='perfil center' onClick={() => {setShowMenuUsuario(!showMenuUsuario)}} >
                         <img src={userDefault} alt='imagem perfil' />
                         </button>

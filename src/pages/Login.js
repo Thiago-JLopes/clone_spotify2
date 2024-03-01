@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../services/server/firebase';
+import { auth } from '../database/firebase';
 
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import './style/loginPage.css';
@@ -14,10 +14,17 @@ export default function Login() {
     const [msg, setMsg] = useState('');
     const [msgErro, setMsgErro] = useState('');
     const navigate = useNavigate();
-    
+    const [token, setToken] = useState('');
+
+    useEffect(() => {
+        const tk = localStorage.getItem('token');
+        if(tk) setToken(tk);
+    }, []);
+
     const realizarLogin = async (event) => {
         event.preventDefault();
         const regex = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/;
+    
 
         if (email === '' || !regex.test(email.toLowerCase())) {
             setMsg('Esse e-mail é inválido.');
@@ -37,7 +44,11 @@ export default function Login() {
             });
             
             if(auth.currentUser) {
+                const tk = await auth.currentUser.getIdToken();
+                localStorage.setItem('token', tk);
+                setToken(tk);
                 navigate(`/homeUser`);
+
             } else {
                 setMsgErro('Ops! Algo deu errado. Tente de novo ou consulte a nossa seção de ajuda.');
             }

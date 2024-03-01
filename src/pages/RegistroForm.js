@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../services/server/firebase';
+import { auth } from '../database/firebase';
 
 import 'react-tabs/style/react-tabs.css';
 import './style/custom-tabs.css';
@@ -13,7 +13,7 @@ import unChecked from '../assets/tick2.png'
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import { Link } from 'react-router-dom';
 import arrow from '../assets/lefth-chevron .png'
-import { insertUser } from '../services/controller/controllerUser';
+import { insertUser } from '../services/controller/userControllers';
 
 export default function RegistroForm() {
   const [email, setEmail] = useState('');

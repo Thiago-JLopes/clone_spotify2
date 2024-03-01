@@ -7,14 +7,21 @@ import iconAdd from '../assets/plus.png'
 import arrowR from '../assets/arrow-to-right.png'
 import arrowL from '../assets/arrow-to-lefth.png'
 import iconFilter from '../assets/simbolo-de-interface-de-lista.png'
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Homeuser () {
 
   const [showLibrary, setShowLibrary] = useState(false);
   const [mostrarMais, setMostrarMais] = useState(false);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if(!token) {
+      navigate('/');
+    }
+  },[navigate])
 
   const hideAndShow = () => {
     setShowLibrary(!showLibrary);

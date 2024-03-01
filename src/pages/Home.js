@@ -8,19 +8,15 @@ import iconPlus from '../assets/plus.png';
 import iconWWW from '../assets/globe.png';
 import Header from '../components/Header';
 import { useEffect } from 'react';
-import { auth } from '../services/server/firebase';
+import { auth } from '../database/firebase';
 
 export default function Home() {
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    //const user = JSON.parse(localStorage.getItem('usuarioLogado'))
-    const user = auth.currentUser;
-    if(user) {
-      console.log(user);
-      navigate('/homeUser');
-    }
+    const token = localStorage.getItem('token');
+    if(token) navigate('/homeUser');
   },[navigate]);
 
   return (

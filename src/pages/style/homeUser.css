@@ -159,7 +159,8 @@
     }
 
     .area-principal {
-        height: 99vh;
+        margin-left: 4px;
+        height: 98vh;
     }
 
     .conteudo {
@@ -173,8 +174,6 @@
         justify-content: center;
         position: relative;
         background-color: rgba(26, 25, 25, 0.952);
-        margin-bottom: 2px;
-
     }
 
     .nav-bar-mobile {
@@ -183,6 +182,7 @@
         justify-content: space-around;
         align-items: center;
         color: white;
+        padding-bottom: 10px;
     }
 }
 
