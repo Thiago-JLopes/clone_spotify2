@@ -34,6 +34,7 @@ export default function RegistroForm() {
   const [msgDate, setMsgDate] = useState('');
   const [msgGenero, setMsgGenero] = useState('');
   const [msgCadastro, setMsgCadastro] = useState('');
+  const [token, setToken] = useState('');
 
   const location = useLocation();
   const navigate = useNavigate();
