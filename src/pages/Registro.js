@@ -70,7 +70,7 @@ export default function Registro() {
 
                     <hr />
                     <span className='center'>
-                        Já tem uma conta? <Link to='/login'>Faça login aqui</Link>.
+                        Já tem uma conta? <Link to={'/login'}>Faça login aqui</Link>.
                     </span>
                     <span className='span-info' style={{ fontSize: 'x-small', marginTop: '20px' }}>
                         <pre>This site is protected by reCAPTCHA and the Google</pre>
