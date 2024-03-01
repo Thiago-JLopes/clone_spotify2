@@ -8,7 +8,6 @@ import iconPlus from '../assets/plus.png';
 import iconWWW from '../assets/globe.png';
 import Header from '../components/Header';
 import { useEffect } from 'react';
-import { auth } from '../database/firebase';
 
 export default function Home() {
 

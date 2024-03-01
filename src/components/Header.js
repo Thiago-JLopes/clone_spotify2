@@ -1,6 +1,6 @@
 import { auth } from '../database/firebase';
 import { useEffect, useState } from 'react';
-import { getIdToken, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 
 import './style/components.css';
 import { Link, useNavigate } from 'react-router-dom';
