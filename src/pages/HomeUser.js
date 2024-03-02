@@ -28,7 +28,6 @@ export default function Homeuser () {
   //Verificar se expiração do token
   useEffect(() => {
     const checkToken = async () => {
-      console.log('Verificando token...');
       if(auth.currentUser) {
         try {
           const tokenResult = await auth.currentUser.getIdTokenResult();
