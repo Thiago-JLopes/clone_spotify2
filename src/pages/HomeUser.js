@@ -9,6 +9,8 @@ import arrowL from '../assets/arrow-to-lefth.png'
 import iconFilter from '../assets/simbolo-de-interface-de-lista.png'
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../database/firebase';
+import { signOut } from 'firebase/auth';
 
 export default function Homeuser () {
 
@@ -21,7 +23,31 @@ export default function Homeuser () {
     if(!token) {
       navigate('/');
     }
-  },[navigate])
+  },[navigate]);
+
+  //Verificar se expiração do token
+  useEffect(() => {
+    const checkToken = async () => {
+      console.log('Verificando token...');
+      if(auth.currentUser) {
+        try {
+          const tokenResult = await auth.currentUser.getIdTokenResult();
+          if (tokenResult !== undefined && tokenResult.expirationTime * 1000 < Date.now()) {
+            signOut(auth);
+            localStorage.removeItem('token');
+            localStorage.setItem('msgSessaoExpirada', 'Sua sessão expirou. Por favor, faça login novamente.');
+            navigate('/login');
+          }
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+    }
+
+    checkToken();
+    const intervalId = setInterval(checkToken, 60000); // a cada 1 min
+    return () => clearInterval(intervalId); // Limpar o intervalo quando o componente for desmontado
+  }, [auth, navigate]);
 
   const hideAndShow = () => {
     setShowLibrary(!showLibrary);
