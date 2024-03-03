@@ -9,14 +9,16 @@ import arrowRight from '../assets/right-chevron.png';
 import bell from '../assets/bell.png';
 import userDefault from '../assets/user(1).png';
 
-export default function Header () {
+export default function Header (props) {
+    const { profile } = props;
     const [usuarioLogado, setUsuarioLogado] = useState(false);
     const [showMenuUsuario, setShowMenuUsuario] = useState(false);
     const navigate = useNavigate();
-    
+
+    console.log(profile)
+
     useEffect(() => {
         const token = localStorage.getItem('token');
-
         if(token) setUsuarioLogado(true);
     },[]);
 
@@ -58,8 +60,8 @@ export default function Header () {
                             <img src={bell} alt='icon notification'/>
                         </button>
                         
-                        <button className='perfil center' onClick={() => {setShowMenuUsuario(!showMenuUsuario)}} >
-                        <img src={userDefault} alt='imagem perfil' />
+                        <button className='perfil center' title={profile ? profile.display_name : 'none'} onClick={() => {setShowMenuUsuario(!showMenuUsuario)}} >
+                        <img src={profile ? profile.images[0].url : userDefault} alt='imagem perfil'/>
                         </button>
                         
                         <div className={`userOptions ${showMenuUsuario ? 'spaceBetweenColumn2' : 'hiden'}`}>

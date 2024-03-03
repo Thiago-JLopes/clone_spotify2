@@ -1,0 +1,47 @@
+.container-album {
+    background-color: transparent;
+    width: 185px;
+    height: 242px;
+    padding: 8px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container-album:hover {
+    background-color: rgba(53, 53, 53, 0.295);
+}
+
+.capa-api {
+    width: 178px;
+    height: 175px;
+    border-radius: 5px;
+}
+
+.title-album {
+    color: white;
+    font-weight: 500;
+}
+
+.label-album {
+    color: rgb(145, 144, 144);
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+.capa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.descricao {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 6px;
+    margin-left: 6px;
+}

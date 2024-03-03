@@ -11,12 +11,47 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../database/firebase';
 import { signOut } from 'firebase/auth';
+import { fetchProfile, getAccessToken, redirectToAuthCodeFlow } from '../services/apis/authProfile';
+import { fetchAlbum } from '../services/apis/contents';
+import Album from '../components/Album';
+
 
 export default function Homeuser () {
 
   const [showLibrary, setShowLibrary] = useState(false);
   const [mostrarMais, setMostrarMais] = useState(false);
+  const [profile, setProfile] = useState(null);
+  const [album, setAlbum] = useState(null);
   const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const client_id = process.env.REACT_APP_CLIENT_ID;
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+
+    if (code) {
+        // Salvar o código no localStorage
+        localStorage.setItem('code', code);
+    }
+
+    const handleAuthorization = async () => {
+        if (!code) {
+            // Se não houver código na URL e não houver código salvo no localStorage,
+            // redirecionar para a página de autorização
+            await redirectToAuthCodeFlow(client_id);
+        } else {
+            // Use o código da URL ou do localStorage para obter o token de acesso
+            const accessToken = await getAccessToken(client_id, code);
+            const getProfile = await fetchProfile(accessToken);
+            setProfile(getProfile);
+          
+            // Navega para a página home do usuário após autenticar
+            navigate(`/homeUser`);
+        }
+    };   
+    handleAuthorization();
+}, [navigate]);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -48,6 +83,21 @@ export default function Homeuser () {
     return () => clearInterval(intervalId); // Limpar o intervalo quando o componente for desmontado
   }, [auth, navigate]);
 
+
+  useEffect(() => {
+    const albumID = '4aawyAB9vmqN3uQ7FjRGTy';
+
+    //Função recupera o album solicitado
+    fetchAlbum(albumID)
+    .then((albumData)=> {
+      setAlbum(albumData);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+  },[]);
+
+  console.log(album);
   const hideAndShow = () => {
     setShowLibrary(!showLibrary);
   };
@@ -117,10 +167,10 @@ export default function Homeuser () {
         </div>
       
         <div className="area-principal">
-          <Header className="header-homeUser"/>
+          <Header className="header-homeUser" profile={profile}/>
           
           <div className='conteudo'>
-            
+            <Album infoAlbum={album}/>      
           </div>
 
           <div className='container3'>

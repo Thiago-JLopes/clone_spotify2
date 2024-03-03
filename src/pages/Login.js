@@ -61,6 +61,7 @@ export default function Login() {
                 localStorage.removeItem('msgSessaoExpirada');
                 //solicita autenticação api spotify
                 await authOptions();
+                
                 // Navega para a página home do usuário
                 navigate(`/homeUser`);
             } else {

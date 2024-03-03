@@ -125,6 +125,10 @@
     border-bottom: 0.1rem solid gray;
 }
 
+.perfil img {
+    border-radius: 100px;
+}
+
 @media screen and (max-width:575.98px) {
     .back-next, .notification {
         display: none;
