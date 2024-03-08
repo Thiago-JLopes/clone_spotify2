@@ -22,7 +22,7 @@ export default function Home() {
     if(access_token) {
       authOptions();
   
-      const albumIDs = ['382ObEPsp2rxGrnsizN5TX','1A2GTWGtFfWp7KSQTwWOyo','2noRn2Aes5aoNVsU6iWThc'];
+      const albumIDs = ['382ObEPsp2rxGrnsizN5TX','1A2GTWGtFfWp7KSQTwWOyo','2noRn2Aes5aoNVsU6iWThc', '4aawyAB9vmqN3uQ7FjRGTy'];
   
       //Função recupera os álbuns solicitados
       fetchSeveralAlbuns(albumIDs)
@@ -130,7 +130,7 @@ export default function Home() {
           <div className='conteudo'>
             <h2 style={{color:'white', padding:'5px'}}>Playlists do Clone Spotify</h2>
 
-            <div>
+            <div className='recomendacoesAlbums'>
               {album && 
                 <Album infoAlbum={album}/>
               }
