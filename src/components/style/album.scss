@@ -5,43 +5,48 @@
     padding: 8px;
     border-radius: 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     cursor: pointer;
-}
-
-.container-album:hover {
-    background-color: rgba(53, 53, 53, 0.295);
-}
-
-.capa-api {
+  
+    &:hover {  // Utilizando o seletor hover do Sass
+      background-color: rgba(53, 53, 53, 0.295);
+    }
+  }
+  
+  .capa-api {
     width: 178px;
     height: 175px;
     border-radius: 5px;
-}
-
-.title-album {
+  }
+  
+  .title-album {
     color: white;
     font-weight: 500;
-}
-
-.label-album {
+  }
+  
+  .label-album {
     color: rgb(145, 144, 144);
     font-size: 13px;
     font-weight: 600;
     margin-top: 3px;
-}
-
-.capa {
+  }
+  
+  .capa {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.descricao {
+  }
+  
+  .descricao {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     margin-top: 6px;
     margin-left: 6px;
-}
+  }
+  
+  .album {
+    margin-right: 25px; /* Adicionando margem entre os álbuns */
+  }
+  

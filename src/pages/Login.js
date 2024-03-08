@@ -6,7 +6,6 @@ import { auth } from '../database/firebase';
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import './style/loginPage.css';
 import './style/registro.css';
-import { authOptions } from '../services/apis/authAPI';
 
 export default function Login() {
     // State para armazenar o email, senha e mensagens de erro/sucesso
@@ -54,14 +53,11 @@ export default function Login() {
             // Verifica se o usuário está autenticado
             if(auth.currentUser) {
                 // Se autenticado, obtém o token de autenticação e armazena no localStorage
-                const tk = await auth.currentUser.getIdToken(7200);
+                const tk = await auth.currentUser.getIdToken();
                 localStorage.setItem('token', tk);
                 setToken(tk);
                 //Remove mensagem de expiração do login no localStorage
                 localStorage.removeItem('msgSessaoExpirada');
-                //solicita autenticação api spotify
-                await authOptions();
-                
                 // Navega para a página home do usuário
                 navigate(`/homeUser`);
             } else {

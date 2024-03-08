@@ -7,17 +7,43 @@ import iconLibrary from '../assets/library.png';
 import iconPlus from '../assets/plus.png';
 import iconWWW from '../assets/globe.png';
 import Header from '../components/Header';
-import { useEffect } from 'react';
+import Album from '../components/Album';
+import { useEffect, useState } from 'react';
+import { authOptions } from '../services/apis/authAPI';
+import { fetchAlbum, fetchSeveralAlbuns } from '../services/apis/contents';
 
 export default function Home() {
 
   const navigate = useNavigate();
+  const [album, setAlbum] = useState(null);
 
   useEffect(() => {
+    const access_token = localStorage.getItem('access_token');
+    if(access_token) {
+      authOptions();
+  
+      const albumIDs = ['382ObEPsp2rxGrnsizN5TX','1A2GTWGtFfWp7KSQTwWOyo','2noRn2Aes5aoNVsU6iWThc'];
+  
+      //Função recupera os álbuns solicitados
+      fetchSeveralAlbuns(albumIDs)
+      .then((albumData)=> {
+        if(albumData) {
+          console.log('Álbuns recuperados:', albumData);
+          setAlbum(albumData);
+        } else {
+          console.log('Nenhum álbum recuperado.');
+        }
+      })
+      .catch((error) => {
+        console.log('Erro ao recuperar álbuns:', error.message);
+      });
+    } 
+    
     const token = localStorage.getItem('token');
     if(token) navigate('/homeUser');
-  },[navigate]);
-
+  
+  }, [navigate]);
+  
   return (
     <div className='container'>
       <div className='container1'>
@@ -100,6 +126,20 @@ export default function Home() {
         {/* Área Principal */}
         <div className='home-area'>
           <Header/>
+
+          <div className='conteudo'>
+            <h2 style={{color:'white', padding:'5px'}}>Playlists do Clone Spotify</h2>
+
+            <div>
+              {album && 
+                <Album infoAlbum={album}/>
+              }
+              {album && 
+                <Album infoAlbum={album}/>
+              }
+            </div>
+              
+          </div>
 
         </div>
       </div>

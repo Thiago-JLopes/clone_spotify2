@@ -61,7 +61,7 @@ export default function Header (props) {
                         </button>
                         
                         <button className='perfil center' title={profile ? profile.display_name : 'none'} onClick={() => {setShowMenuUsuario(!showMenuUsuario)}} >
-                        <img src={profile ? profile.images[0].url : userDefault} alt='imagem perfil'/>
+                        <img src={profile && profile.images && profile.images.length > 0 ? profile.images[0].url : userDefault} alt='imagem perfil'/>
                         </button>
                         
                         <div className={`userOptions ${showMenuUsuario ? 'spaceBetweenColumn2' : 'hiden'}`}>

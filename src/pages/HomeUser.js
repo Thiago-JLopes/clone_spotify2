@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from '../database/firebase';
 import { signOut } from 'firebase/auth';
 import { fetchProfile, getAccessToken, redirectToAuthCodeFlow } from '../services/apis/authProfile';
-import { fetchAlbum } from '../services/apis/contents';
+import { fetchSeveralAlbuns } from '../services/apis/contents';
 import Album from '../components/Album';
 
 
@@ -85,17 +85,25 @@ export default function Homeuser () {
 
 
   useEffect(() => {
-    const albumID = '4aawyAB9vmqN3uQ7FjRGTy';
+    
+    const albumIDs = ['382ObEPsp2rxGrnsizN5TX','1A2GTWGtFfWp7KSQTwWOyo','2noRn2Aes5aoNVsU6iWThc'];
 
-    //Função recupera o album solicitado
-    fetchAlbum(albumID)
+    //Função recupera os álbuns solicitados
+    fetchSeveralAlbuns(albumIDs)
     .then((albumData)=> {
-      setAlbum(albumData);
+      if(albumData) {
+        console.log('Álbuns recuperados:', albumData);
+        setAlbum(albumData);
+      } else {
+        console.log('Nenhum álbum recuperado.');
+      }
     })
     .catch((error) => {
-      console.log(error.message);
+      console.log('Erro ao recuperar álbuns:', error.message);
     });
-  },[]);
+     
+      
+  }, []);
 
   console.log(album);
   const hideAndShow = () => {
@@ -170,7 +178,9 @@ export default function Homeuser () {
           <Header className="header-homeUser" profile={profile}/>
           
           <div className='conteudo'>
-            <Album infoAlbum={album}/>      
+              {album && 
+                <Album infoAlbum={album}/>
+              }      
           </div>
 
           <div className='container3'>

@@ -1,29 +1,32 @@
-import './style/album.css'
-import imgDefalut from '../assets/Spotify_Logo_CMYK_White.png';
+import {
+  ContainerAlbum,
+  Capa,
+  TitleAlbum,
+  LabelAlbum,
+  Descricao,
+  NewAlbum,
+} from './AlbumStyle';
 
-export default function Album (props) {
-    const {infoAlbum} = props;
-    console.log('infoAlbum: ', infoAlbum)
+export default function Album(props) {
+    const { infoAlbum } = props;
+  
+    // Verifica se infoAlbum existe e possui a propriedade 'albums'
+    const albums = infoAlbum && infoAlbum.albums ? infoAlbum.albums : [];
+  
     return (
-        <>
-            <div className="container-album">
-                <div className="capa">
-                    {
-                        infoAlbum ?
-                        <img src={infoAlbum.images[1].url} className='capa-api'/>
-                        :
-                        <img src={imgDefalut} />
-                    }
-                    <div className='descricao'>
-                        <span className='title-album'>{infoAlbum ? infoAlbum.name : 'Default'}</span>
-                        <span className='label-album'>{infoAlbum ? infoAlbum.label : 'Default'}</span>
-                    </div>
-                </div>
-
-                <div className="titulo-descricao">
-
-                </div>
-            </div>
-        </>
+      <div className="spaceAround">
+      {albums.map((album, index) => (
+        <NewAlbum key={index}>
+          <ContainerAlbum>
+            <Capa src={album.images[0].url} alt="Capa do Álbum" />
+            <Descricao>
+              <TitleAlbum>{album.name}</TitleAlbum>
+              <LabelAlbum>{album.label}</LabelAlbum>
+            </Descricao>
+          </ContainerAlbum>
+        </NewAlbum>
+      ))}
+    </div>
     );
-}
+  }
+  
