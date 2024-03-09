@@ -1,8 +1,11 @@
 //Solicita token de autenticação API Spotify
 export async function authOptions() {
     try {
-        const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-        const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
+        // const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+        // const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
+
+        const CLIENT_ID = 'adc977d53edf42f5a19f0ec62466906b';
+        const CLIENT_SECRET = '629c3d5177c34875b92f78b5bb96f2a6';
 
         const response = await fetch('https://accounts.spotify.com/api/token', {
             method: 'POST',
