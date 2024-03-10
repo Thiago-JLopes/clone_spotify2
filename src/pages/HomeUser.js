@@ -25,16 +25,12 @@ export default function Homeuser () {
   const navigate = useNavigate();
 
 
+  const client_id = process.env.REACT_APP_CLIENT_ID;
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+
   useEffect(() => {
-    const client_id = process.env.REACT_APP_CLIENT_ID;
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-
-    if (code) {
-        // Salvar o código no localStorage
-        localStorage.setItem('code', code);
-    }
-
+    
     const handleAuthorization = async () => {
         if (!code) {
             // Se não houver código na URL e não houver código salvo no localStorage,

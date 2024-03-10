@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 const ContainerAlbum = styled.div`
-  background-color: transparent;
+  background-color: rgba(36, 35, 35, 0.295);
   width: 185px;
   height: 242px;
   padding: 8px;
@@ -11,6 +11,7 @@ const ContainerAlbum = styled.div`
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  margin-top: 8px;
 
   &:hover {
     background-color: rgba(53, 53, 53, 0.295);
@@ -44,7 +45,7 @@ const Descricao = styled.div`
 `;
 
 const NewAlbum = styled.div`
-  margin-right: 25px; /* Adicionando margem entre os álbuns */
+  
 `;
 
 export {

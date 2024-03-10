@@ -42,6 +42,12 @@ body {
     align-items: center;
 }
 
+.spaceAround2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .flex-start{
     display: flex;
     justify-content: flex-start;
