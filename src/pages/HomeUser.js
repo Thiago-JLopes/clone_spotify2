@@ -14,6 +14,7 @@ import { signOut } from 'firebase/auth';
 import { fetchProfile, getAccessToken, redirectToAuthCodeFlow } from '../services/apis/authProfile';
 import { fetchSeveralAlbuns } from '../services/apis/contents';
 import Album from '../components/Album';
+import Rodape from '../components/Rodape';
 
 
 export default function Homeuser () {
@@ -82,7 +83,7 @@ export default function Homeuser () {
 
   useEffect(() => {
     
-    const albumIDs = ['382ObEPsp2rxGrnsizN5TX','1A2GTWGtFfWp7KSQTwWOyo','2noRn2Aes5aoNVsU6iWThc'];
+    const albumIDs = ['6WkOBnYkj6y5iSr14uhUZF','1A2GTWGtFfWp7KSQTwWOyo','2noRn2Aes5aoNVsU6iWThc'];
 
     //Função recupera os álbuns solicitados
     fetchSeveralAlbuns(albumIDs)
@@ -176,7 +177,8 @@ export default function Homeuser () {
           <div className='conteudo'>
               {album && 
                 <Album infoAlbum={album}/>
-              }      
+              }
+              <Rodape/>      
           </div>
 
           <div className='container3'>

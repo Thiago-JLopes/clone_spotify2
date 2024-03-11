@@ -45,5 +45,28 @@ export async function fetchAlbum(albumId) {
     }
 }
 
+export async function searchForNewAlbumIds() {
+  const accessToken = localStorage.getItem('access_token');
+  const apiUrl = 'https://api.spotify.com/v1/search?q=tag:new-releases&type=album&limit=4&market=BR'; // Usando o filtro tag:new para obter álbuns com maior popularidade
+
+  try {
+      const response = await fetch(apiUrl, {
+          headers: {
+              Authorization: `Bearer ${accessToken}`,
+          },
+      });
+
+      if (!response.ok) {
+          throw new Error('Erro ao buscar IDs de álbuns por popularidade');
+      }
+
+      const albumData = await response.json();
+      const albumIds = albumData.albums.items.map(album => album.id); // Extrai apenas os IDs dos álbuns
+      return albumIds;
+  } catch (error) {
+      console.error('Erro:', error);
+      return null;
+  }
+}
 
   
