@@ -7,13 +7,7 @@ import iconAdd from '../assets/plus.png'
 import arrowR from '../assets/arrow-to-right.png'
 import arrowL from '../assets/arrow-to-lefth.png'
 import iconFilter from '../assets/simbolo-de-interface-de-lista.png'
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { auth } from '../database/firebase';
-import { signOut } from 'firebase/auth';
-import { fetchProfile, getAccessToken, redirectToAuthCodeFlow } from '../services/apis/authProfile';
-import { fetchSeveralAlbuns } from '../services/apis/contents';
-import Album from '../components/Album';
+import { useState } from 'react';
 import Rodape from '../components/Rodape';
 
 
@@ -22,87 +16,7 @@ export default function Homeuser () {
   const [showLibrary, setShowLibrary] = useState(false);
   const [mostrarMais, setMostrarMais] = useState(false);
   const [profile, setProfile] = useState(null);
-  const [album, setAlbum] = useState(null);
-  const navigate = useNavigate();
 
-
-  const client_id = process.env.REACT_APP_CLIENT_ID;
-  const params = new URLSearchParams(window.location.search);
-  const code = params.get("code");
-
-  useEffect(() => {
-    
-    const handleAuthorization = async () => {
-        if (!code) {
-            // Se não houver código na URL e não houver código salvo no localStorage,
-            // redirecionar para a página de autorização
-            await redirectToAuthCodeFlow(client_id);
-        } else {
-            // Use o código da URL ou do localStorage para obter o token de acesso
-            const accessToken = await getAccessToken(client_id, code);
-            const getProfile = await fetchProfile(accessToken);
-            setProfile(getProfile);
-          
-            // Navega para a página home do usuário após autenticar
-            navigate(`/homeUser`);
-        }
-    };   
-    handleAuthorization();
-}, [navigate]);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if(!token) {
-      navigate('/');
-    }
-  },[navigate]);
-
-  //Verificar se expiração do token
-  useEffect(() => {
-    const checkToken = async () => {
-      if(auth.currentUser) {
-        try {
-          const tokenResult = await auth.currentUser.getIdTokenResult();
-          if (tokenResult !== undefined && tokenResult.expirationTime * 1000 < Date.now()) {
-            signOut(auth);
-            localStorage.removeItem('token');
-            localStorage.setItem('msgSessaoExpirada', 'Sua sessão expirou. Por favor, faça login novamente.');
-            navigate('/login');
-          }
-        } catch (error) {
-          console.log(error.message);
-        }
-      }
-    }
-
-    checkToken();
-    const intervalId = setInterval(checkToken, 60000); // a cada 1 min
-    return () => clearInterval(intervalId); // Limpar o intervalo quando o componente for desmontado
-  }, [auth, navigate]);
-
-
-  useEffect(() => {
-    
-    const albumIDs = ['6WkOBnYkj6y5iSr14uhUZF','1A2GTWGtFfWp7KSQTwWOyo','2noRn2Aes5aoNVsU6iWThc'];
-
-    //Função recupera os álbuns solicitados
-    fetchSeveralAlbuns(albumIDs)
-    .then((albumData)=> {
-      if(albumData) {
-        console.log('Álbuns recuperados:', albumData);
-        setAlbum(albumData);
-      } else {
-        console.log('Nenhum álbum recuperado.');
-      }
-    })
-    .catch((error) => {
-      console.log('Erro ao recuperar álbuns:', error.message);
-    });
-     
-      
-  }, []);
-
-  console.log(album);
   const hideAndShow = () => {
     setShowLibrary(!showLibrary);
   };
@@ -175,10 +89,7 @@ export default function Homeuser () {
           <Header className="header-homeUser" profile={profile}/>
           
           <div className='conteudo'>
-              {album && 
-                <Album infoAlbum={album}/>
-              }
-              <Rodape/>      
+             <Rodape/>      
           </div>
 
           <div className='container3'>

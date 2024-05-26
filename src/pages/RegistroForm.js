@@ -12,7 +12,7 @@ import checked from '../assets/tick.png'
 import unChecked from '../assets/tick2.png'
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import { Link } from 'react-router-dom';
-import arrow from '../assets/lefth-chevron .png'
+import arrow from '../assets/lefth-chevron.png'
 import { insertUser } from '../services/controller/userControllers';
 
 export default function RegistroForm() {
