@@ -18,14 +18,8 @@ export default function Home() {
   const navigate = useNavigate();
   const [album, setAlbum] = useState(null);
 
-
   useEffect(() => {
-    const access_token = localStorage.getItem('access_token');
-    if(access_token) {
-      authOptions();
-      
-      
-      searchForNewAlbumIds()
+    searchForNewAlbumIds()
       .then((ids) => {
         
         //Função recupera os álbuns solicitados
@@ -44,6 +38,13 @@ export default function Home() {
       .catch((error) => {
         console.log('Erro ao recuperar álbuns!')
       });
+  },[]);
+
+
+  useEffect(() => {
+    const access_token = localStorage.getItem('access_token');
+    if(access_token) {
+      authOptions();
     } 
     
     const token = localStorage.getItem('token');
@@ -142,6 +143,16 @@ export default function Home() {
               {album && 
                 <Album infoAlbum={album}/>
               }
+            
+            <h2 style={{color:'white', padding:'5px', marginTop: '9px'}}>Top Artistas</h2>
+            {album && 
+              <Album infoAlbum={album}/>
+            }
+
+            <h2 style={{color:'white', padding:'5px', marginTop: '9px'}}>Destaques</h2>
+            {album && 
+              <Album infoAlbum={album}/>
+            }            
             </div>
             <Rodape/>
           </div>
