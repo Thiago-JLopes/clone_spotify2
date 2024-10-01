@@ -83,7 +83,7 @@ Antes de começar, certifique-se de ter os seguintes requisitos instalados:
 
 ### Visualização 🎉
 
-Você pode visualizar o meu projeto hospedado no Vercel [aqui](https://clone-spotify2-thiago-jlopes.vercel.app/).
+Você pode visualizar o meu projeto hospedado no Vercel [aqui](https://clone-spotify2-opal.vercel.app/).
 
 ### Contribuição 🤝
 
