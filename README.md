@@ -1,6 +1,7 @@
-## Spotify Clone 🎵
 
-Este é um projeto de clone do Spotify, utilizando Firestore e Firebase Authentication, eliminando o uso do PostgreSQL e com hospedagem planejada no Vercel, além da inclusão da API do Spotify para integração.
+### Em produção (melhorando)
+
+## Spotify Clone 🎵
 
 ### Introdução 🚀
 
