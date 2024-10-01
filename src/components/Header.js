@@ -1,9 +1,5 @@
-// Importa a função de autenticação do Firebase
-import { auth } from '../database/firebase';
 // Importa hooks do React
 import { useEffect, useState } from 'react';
-// Importa a função de logout do Firebase
-import { signOut } from 'firebase/auth';
 
 // Importa o arquivo CSS para estilos
 import './style/components.css';
@@ -28,26 +24,6 @@ export default function Header(props) {
     // Loga o perfil para depuração
     console.log(profile);
 
-    // Hook que executa uma vez após a montagem do componente
-    useEffect(() => {
-        // Verifica se há um token de usuário no localStorage
-        const token = localStorage.getItem('token');
-        // Se houver um token, marca o usuário como logado
-        if (token) setUsuarioLogado(true);
-    }, []);
-
-    // Função para fazer logout
-    const logOut = () => {
-        signOut(auth).then(() => {
-            // Sucesso no logout
-            localStorage.removeItem('token'); // Remove o token do localStorage
-            setUsuarioLogado(false); // Marca o usuário como deslogado
-            navigate('/'); // Redireciona para a página inicial
-        }).catch((error) => {
-            // Loga qualquer erro
-            console.log(error);
-        });
-    };
 
     return (
         <>    
@@ -84,7 +60,7 @@ export default function Header(props) {
                             <span>Perfil</span>
                             <span>Configurações</span>
                             <div className='divisor'></div>
-                            <span onClick={logOut}>Sair</span>
+                            <span>Sair</span>
                         </div>
                     </div>
                 </nav>

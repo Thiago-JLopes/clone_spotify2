@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../database/firebase';
 
 import 'react-tabs/style/react-tabs.css';
 import './style/custom-tabs.css';
@@ -13,7 +11,6 @@ import unChecked from '../assets/tick2.png'
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import { Link } from 'react-router-dom';
 import arrow from '../assets/lefth-chevron.png'
-import { insertUser } from '../services/controller/userControllers';
 
 export default function RegistroForm() {
   const [email, setEmail] = useState('');
@@ -127,35 +124,6 @@ export default function RegistroForm() {
         dataNascimento,
         genero
       };
-
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.senha);
-        const user = userCredential.user;
-        await insertUser(user.uid, userData);
-        await signInWithEmailAndPassword(auth, userData.email, userData.senha)
-        .then(() => {
-
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
-        });
-
-        if(auth.currentUser) {
-          const tk = await auth.currentUser.getIdToken();
-          localStorage.setItem('token', tk);
-          setToken(tk);
-          navigate(`/homeUser`);
-
-        } else {
-            setMsgCadastro('Ops! Algo deu errado. Tente de novo ou consulte a nossa seção de ajuda.');
-        }
-      } catch (error) {
-        setMsgCadastro('Ops! Algo deu errado. Tente de novo ou consulte a nossa seção de ajuda.');
-        console.error('Erro:', error);
-
-      }
     } else {
       setMsgCadastro('Por favor, concorde com os termos antes de se inscrever.');
       return;

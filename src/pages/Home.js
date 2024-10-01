@@ -8,9 +8,7 @@ import iconPlus from '../assets/plus.png';
 import iconWWW from '../assets/globe.png';
 import Header from '../components/Header';
 import Album from '../components/Album';
-import { useEffect, useState } from 'react';
-import { authOptions } from '../services/apis/authAPI';
-import { fetchSeveralAlbuns, searchForNewAlbumIds} from '../services/apis/contents';
+import { useState } from 'react';
 import Rodape from '../components/Rodape';
 
 export default function Home() {
@@ -18,38 +16,6 @@ export default function Home() {
   const navigate = useNavigate();
   const [album, setAlbum] = useState(null);
 
-
-  useEffect(() => {
-    const access_token = localStorage.getItem('access_token');
-    if(access_token) {
-      authOptions();
-      
-      
-      searchForNewAlbumIds()
-      .then((ids) => {
-        
-        //Função recupera os álbuns solicitados
-        fetchSeveralAlbuns(ids)
-        .then((albumData)=> {
-          if(albumData) {
-            setAlbum(albumData);
-          } else {
-            console.log('Nenhum álbum recuperado.');
-          }
-        })
-        .catch((error) => {
-          console.log('Erro ao recuperar álbuns:', error.message);
-        });
-      })
-      .catch((error) => {
-        console.log('Erro ao recuperar álbuns!')
-      });
-    } 
-    
-    const token = localStorage.getItem('token');
-    if(token) navigate('/homeUser');
-  
-  }, [navigate]);
   
   return (
     <div className='container'>

@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../database/firebase';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import logo from '../assets/Spotify_Logo_CMYK_White.png';
 import './style/loginPage.css';
@@ -13,17 +11,7 @@ export default function Login() {
     const [senha, setSenha] = useState('');
     const [msg, setMsg] = useState('');
     const [msgErro, setMsgErro] = useState('');
-    const navigate = useNavigate();
-    const [token, setToken] = useState('');
 
-    // Efeito para verificar se há um token armazenado no localStorage
-    useEffect(() => {
-        const tk = localStorage.getItem('token');
-        if(tk) setToken(tk);
-
-        let logSessao = localStorage.getItem('msgSessaoExpirada');
-        if(logSessao) setMsgErro(logSessao);
-    }, []);
 
     // Função para lidar com o processo de login
     const realizarLogin = async (event) => {
@@ -37,38 +25,6 @@ export default function Login() {
             return;
         }
 
-        try {
-            // Tenta fazer o login com o email e senha fornecidos
-            await signInWithEmailAndPassword(auth, email, senha)
-            .then(() => {
-                // Se o login for bem-sucedido, podemos fazer algo com o usuário (não utilizado atualmente)
-            })
-            .catch((error) =>{
-                // Se houver um erro no login, exibimos a mensagem de erro no console
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(`Algo deu errado: ${errorCode} ${errorMessage}`);
-            });
-            
-            // Verifica se o usuário está autenticado
-            if(auth.currentUser) {
-                // Se autenticado, obtém o token de autenticação e armazena no localStorage
-                const tk = await auth.currentUser.getIdToken();
-                localStorage.setItem('token', tk);
-                setToken(tk);
-                //Remove mensagem de expiração do login no localStorage
-                localStorage.removeItem('msgSessaoExpirada');
-                // Navega para a página home do usuário
-                navigate(`/homeUser`);
-            } else {
-                // Se não autenticado, exibe uma mensagem de erro
-                setMsgErro('Ops! Algo deu errado. Tente de novo ou consulte a nossa seção de ajuda.');
-            }
-
-        } catch (error) {
-            // Se houver um erro, exibe uma mensagem de erro genérica
-            setMsgErro('Ops! Algo deu errado. Tente de novo ou consulte a nossa seção de ajuda.');
-        }
     };
 
     return (
