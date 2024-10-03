@@ -1,12 +1,8 @@
 import './style/home.css';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../assets/Spotify_Logo_CMYK_White.png';
-import iconHome from '../assets/house.png';
-import iconSearch from '../assets/search-interface-symbol.png';
 import iconLibrary from '../assets/library.png';
 import iconPlus from '../assets/plus.png';
 import iconWWW from '../assets/globe.png';
-import Header from '../components/Header';
 import Album from '../components/Album';
 import { useState } from 'react';
 import Rodape from '../components/Rodape';
@@ -19,37 +15,13 @@ export default function Home() {
   
   return (
     <div className='container'>
-      <div className='container1'>
+      <header className='header-home'>
+          {/* Logo */}
+          teste
+      </header>
+      <section className='container1'>
         {/* Menu Lateral */}
-        <div className='menu-lateral-home'>
-          {/* Filtro de Navegação */}
-          <div className='filter'>
-            <nav className='nav-search'>
-              {/* Link para a Página Principal */}
-              <Link to='/'>
-                <div className='logo-filter center-start'>
-                  <img src={logo} alt='icone logo' style={{ width: '81px', marginLeft: '2px' }} />
-                </div>
-              </Link>
-
-              {/* Link para a Página Inicial */}
-              <Link to='/' style={{ textDecoration: 'none' }}>
-                <div className='icon-home center-start'>
-                  <img src={iconHome} alt='icone home' style={{ width: '27px' }} />
-                  <span>Home</span>
-                </div>
-              </Link>
-
-              {/* Link para a Página de Busca */}
-              <Link to='/' style={{ textDecoration: 'none' }}>
-                <div className='icon-search center-start'>
-                  <img src={iconSearch} alt='icone search' style={{ width: '26px' }} />
-                  <span>Search</span>
-                </div>
-              </Link>
-            </nav>
-          </div>
-
+        <aside className='menu-lateral-home'>
           {/* Biblioteca de Música */}
           <div className='library'>
             <div className='library-head'>
@@ -94,14 +66,11 @@ export default function Home() {
               </button>
             </div>
           </div>
-        </div>
+        </aside>
 
         {/* Área Principal */}
-        <div className='home-area'>
-          <Header/>
-
+        <main className='home-area'>
           <div className='conteudo'>
-
             <div className='recomendacoesAlbuns'>
             <h2 style={{color:'white', padding:'5px'}}>Novos Álbuns</h2>
 
@@ -111,8 +80,8 @@ export default function Home() {
             </div>
             <Rodape/>
           </div>
-        </div>
-      </div>
+        </main>
+      </section>
       {/* Rodapé */}
       <footer className='spaceBetweenRow'>
         <div>

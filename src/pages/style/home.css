@@ -107,22 +107,26 @@
 }
 
 footer {
-    padding: 8px;
+    padding: 0.7rem;
     color: white;
-    background: linear-gradient(to right, rgb(183, 43, 226), rgb(131, 63, 177), rgb(132, 196, 221));
-    height: 70px;
+    background: linear-gradient(to right, rgb(230, 44, 215), rgb(131, 63, 177), rgb(132, 196, 221));
+    height: 7.8vh;
     margin: 8px;
 }
 
 footer > button {
     border: none;
     border-radius: 20px;
-    margin: 20px;
-    margin-right: 40px;
-    min-width: 18vw;
-    padding: 8px;
+    margin-right: 2.5vw;
+    padding: 0.8rem;
     font-size: medium;
+    font-weight: 500;
     cursor: pointer;
+    transition-duration: 0.4s;
+    
+    &:hover {
+        font-weight: 600;
+    }
 }
 
 .nav-bar > .center-col span {
