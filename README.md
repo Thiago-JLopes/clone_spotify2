@@ -1,5 +1,5 @@
 
-### Em produção (melhorando)
+### Em produção....
 
 ## Spotify Clone 🎵
 
