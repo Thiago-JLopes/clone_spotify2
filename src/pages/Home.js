@@ -3,21 +3,28 @@ import { Link, useNavigate } from 'react-router-dom';
 import iconLibrary from '../assets/library.png';
 import iconPlus from '../assets/plus.png';
 import iconWWW from '../assets/globe.png';
-import Album from '../components/Album';
-import { useState } from 'react';
+import iconHouse from '../assets/house.png';
+import logo from '../assets/Spotify_Primary_Logo_RGB_White.png'
 import Rodape from '../components/Rodape';
 
 export default function Home() {
 
   const navigate = useNavigate();
-  const [album, setAlbum] = useState(null);
 
   
   return (
     <div className='container'>
       <header className='header-home'>
           {/* Logo */}
-          teste
+          <img src={logo} alt='logo' title='Spotify' style={{ width: '2.4vw', cursor: 'pointer', marginLeft: "1.6vw" }} onClick={() => navigate('/')} />
+          {/* Links de Navegação */}
+          <div className='home-search'>
+            <div id='iconHome'>
+              <img src={iconHouse} alt='Início' title='Início'/>
+            </div>
+            <input type='text' placeholder='O que você quer ouvir'/>
+          </div>
+          <div>teste2</div>
       </header>
       <section className='container1'>
         {/* Menu Lateral */}
@@ -72,11 +79,7 @@ export default function Home() {
         <main className='home-area'>
           <div className='conteudo'>
             <div className='recomendacoesAlbuns'>
-            <h2 style={{color:'white', padding:'5px'}}>Novos Álbuns</h2>
-
-              {album && 
-                <Album infoAlbum={album}/>
-              }
+            <h2 style={{color:'white', padding:'5px'}}>Artistas populares</h2>
             </div>
             <Rodape/>
           </div>

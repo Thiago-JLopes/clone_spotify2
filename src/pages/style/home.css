@@ -9,6 +9,41 @@
     overflow-y: hidden;
 }
 
+.header-home {
+    color: white;
+    height: 12%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#iconHome{
+    margin-right: 0.6vw;
+    background-color: rgba(103, 103, 104, 0.425);
+    padding: 8px;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+#iconHome img {
+    width: 2vw;
+} 
+
 .menu-lateral-home {
     display: flex;
     flex-direction: column;
@@ -111,7 +146,7 @@ footer {
     color: white;
     background: linear-gradient(to right, rgb(230, 44, 215), rgb(131, 63, 177), rgb(132, 196, 221));
     height: 7.8vh;
-    margin: 8px;
+    margin: 7px;
 }
 
 footer > button {
@@ -122,10 +157,12 @@ footer > button {
     font-size: medium;
     font-weight: 500;
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition: all 0.4s ease; /* Transição suave para todas as propriedades */
+    box-sizing: border-box; /* Garante que o padding extra não expanda o tamanho */
     
     &:hover {
         font-weight: 600;
+        transform: scale(1.05); 
     }
 }
 
