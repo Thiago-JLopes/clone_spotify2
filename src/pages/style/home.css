@@ -23,10 +23,34 @@
     align-items: center;
 }
 
+.home-search input {
+    border: none;
+    margin: 5px 35px 5px 35px;
+    background-color: transparent;
+    padding: 7px;
+    height: 18px;
+    width: 25vw;
+    max-width: 500px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+#input-search {
+    background-color: rgba(103, 103, 104, 0.425);
+    border-radius: 20px;
+
+
+    &:hover {
+        background-color: rgba(110, 110, 112, 0.425);
+        transform: scale(1.02);
+    }
+}
+
 #iconHome{
     margin-right: 0.6vw;
     background-color: rgba(103, 103, 104, 0.425);
-    padding: 8px;
+    padding: 9px;
     border-radius: 50%;
     width: 28px;
     height: 28px;
@@ -41,7 +65,7 @@
 }
 
 #iconHome img {
-    width: 2vw;
+    width: 20px;
 } 
 
 .menu-lateral-home {

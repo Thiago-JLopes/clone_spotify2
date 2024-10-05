@@ -16,13 +16,15 @@ export default function Home() {
     <div className='container'>
       <header className='header-home'>
           {/* Logo */}
-          <img src={logo} alt='logo' title='Spotify' style={{ width: '2.4vw', cursor: 'pointer', marginLeft: "1.6vw" }} onClick={() => navigate('/')} />
+          <img src={logo} alt='logo' title='Spotify' style={{ width: '33.3px', cursor: 'pointer', marginLeft: "25px" }} onClick={() => navigate('/')} />
           {/* Links de Navegação */}
           <div className='home-search'>
             <div id='iconHome'>
               <img src={iconHouse} alt='Início' title='Início'/>
             </div>
-            <input type='text' placeholder='O que você quer ouvir'/>
+            <div id='input-search'>
+              <input type='text' placeholder='O que você quer ouvir'/>
+            </div>
           </div>
           <div>teste2</div>
       </header>
