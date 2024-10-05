@@ -2,10 +2,19 @@
     display: flex;
 }
 
+.login {
+    width: 50%;
+}
+
 .page-login {
     background: linear-gradient(to top, rgb(22, 22, 22), rgb(51, 50, 50));
     min-height: 100vh;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow-x: hidden;
 }
 
 .logo-login {
@@ -24,26 +33,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 22px;
+    margin-top: 28px;
     border-radius: 5px;
     background-color: rgb(19, 18, 18);
     color: white;
     padding: 15px;
+    width: 53%;
 }
 
 .campo-login h1 {
-    margin-top: 60px;
+    margin-top: 10px;
     margin-bottom: 52px;
     font-size: 38px;
     font-weight: 900;
 }
 
-.campo-login form {
+.login form{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.campo-login form > label {
+.login form > label {
+    display: block;
+    width: 100%;
+    text-align: start;
     font-weight: 800;
     font-size: 13px;
     padding: 3px;
@@ -51,8 +67,7 @@
     color: rgb(228, 228, 228);
 }
 
-.campo-login form > input {
-    width: 40vw;
+.login form > input {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 8px;
@@ -60,9 +75,10 @@
     font-weight: 600;
     height: 32px;
     background-color: transparent;
+    width: 100%;
 }
 
-.campo-login button {
+.login button {
     margin-top: 22px;
     margin-bottom: 15px;
     width: 100%;
@@ -78,12 +94,17 @@
     text-decoration: underline;
     color: white;
     font-weight: 400;
+    cursor: pointer;
+
+    &:hover {
+        color: #1db954;
+    }
 }
 
-.campo-login span > a:hover {
-    color: #1db954;
+.campo-login img {
+    width: 35px;
+    margin-top: 22px;
 }
-
 
 .campo-login span {
     margin-top: 8px;
@@ -93,6 +114,7 @@
 .footer-login {
     margin-top: 25px;
     padding: 25px;
+    width: 100%;
     color: rgb(124, 121, 121);
     font-size: small;
     background-color: rgb(30, 31, 31);
@@ -104,7 +126,6 @@
 }
 
 .msgErro {
-    background-color: rgb(145, 15, 15);
     color: white;
     font-size: medium;
     font-weight: 700;
@@ -113,15 +134,28 @@
 
 /**Medias**/
 @media screen and (max-width: 575.98px){
-    .campo-login form > input {
-        width: 82vw;
-        height: 32px;
+    .login {
+        width: 100%;
     }
-}
 
-@media screen and (max-width: 875.98px){
-    .campo-login form > input {
-        width: 60vw;
-        height: 32px;
+    .login form > label {
+        font-weight: 400;
+        font-size: 10px;
+    }
+
+    .campo-login h1 {
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .campo-login span {
+        font-weight: 200;
+        font-size: 10px;
+    }
+
+    .campo-login span a {
+        font-weight: 200;
+        font-size: 10px;
     }
 }
