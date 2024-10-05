@@ -56,3 +56,28 @@
 .listaRedesSociais li:hover{
     background-color: rgba(133, 131, 131, 0.685);
 }
+
+
+@media screen and (max-width: 900.99px) {
+    .linksDiversos {
+        flex-direction: column;       
+    }
+    
+    .linksUteis ul>li>a{
+        font-size: small;
+    }
+
+    .linksUteis ul {
+        padding: 2px;
+        margin-right: 5px;
+    }
+    
+    .linksUteis ul>li {
+        padding: 3px;
+    }
+
+    .titleLink {
+        font-weight: 500;
+    }
+    
+}

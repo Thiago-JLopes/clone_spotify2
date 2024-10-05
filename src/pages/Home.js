@@ -5,29 +5,46 @@ import iconPlus from '../assets/plus.png';
 import iconWWW from '../assets/globe.png';
 import iconHouse from '../assets/house.png';
 import logo from '../assets/Spotify_Primary_Logo_RGB_White.png'
+import searchIcon from '../assets/search.png'
 import Rodape from '../components/Rodape';
+import { useState } from 'react';
 
 export default function Home() {
 
   const navigate = useNavigate();
+  const [dataSearch, setDataSearch] = useState('');
 
+  const search = (e) => {
+    setDataSearch(e);
+  };
   
   return (
     <div className='container'>
       <header className='header-home'>
-          {/* Logo */}
-          <img src={logo} alt='logo' title='Spotify' style={{ width: '33.3px', cursor: 'pointer', marginLeft: "25px" }} onClick={() => navigate('/')} />
-          {/* Links de Navegação */}
-          <div className='home-search'>
-            <div id='iconHome'>
-              <img src={iconHouse} alt='Início' title='Início'/>
+        {/* Logo */}
+        <img src={logo} alt='logo' title='Spotify' className='logo' onClick={() => navigate('/')}/>
+
+        {/* Área de Busca e Ícones */}
+        <div className='home-search'>
+          <div className='center'>
+            <div id='iconHome' className='icon'>
+              <img src={iconHouse} alt='Início' title='Início' />
             </div>
-            <div id='input-search'>
-              <input type='text' placeholder='O que você quer ouvir'/>
+
+            <div id='input-search' className='search-bar'>
+              <img src={searchIcon} alt='Buscar' title='Buscar' />
+              <input type='text' placeholder='O que você quer ouvir' onChange={(e)=>search(e.target.value)}/>
             </div>
           </div>
-          <div>teste2</div>
+
+          {/* Botões de Ação */}
+          <div className='buttonsHomeHeader'>
+            <button className='subscribe-btn' onClick={()=> navigate('/registro')}>Inscreva-se</button>
+            <button className='login-btn' onClick={()=> navigate('/login')}>Entrar</button>
+          </div>
+        </div>
       </header>
+
       <section className='container1'>
         {/* Menu Lateral */}
         <aside className='menu-lateral-home'>
@@ -82,6 +99,7 @@ export default function Home() {
           <div className='conteudo'>
             <div className='recomendacoesAlbuns'>
             <h2 style={{color:'white', padding:'5px'}}>Artistas populares</h2>
+              
             </div>
             <Rodape/>
           </div>
