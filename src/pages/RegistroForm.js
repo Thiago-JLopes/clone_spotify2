@@ -31,7 +31,6 @@ export default function RegistroForm() {
   const [msgDate, setMsgDate] = useState('');
   const [msgGenero, setMsgGenero] = useState('');
   const [msgCadastro, setMsgCadastro] = useState('');
-  const [token, setToken] = useState('');
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -124,6 +123,8 @@ export default function RegistroForm() {
         dataNascimento,
         genero
       };
+      console.log(userData);
+      navigate('/homeUser' , { state: { userData } })
     } else {
       setMsgCadastro('Por favor, concorde com os termos antes de se inscrever.');
       return;
@@ -137,7 +138,7 @@ export default function RegistroForm() {
         <Link to={'/'}><img src={logo} alt="logo spotify"/></Link>
       </div>
 
-      <div className='form center'>
+      <div className='form'>
         <Tabs selectedIndex={tabIndex}>
           <TabList>
             <Tab disabled={tabIndex !== 0}>Crie um senha</Tab>
@@ -304,7 +305,7 @@ export default function RegistroForm() {
                 <span>Etapa 3 de 3</span>
               </div>
               <div style={{color: 'red'}}>{msgCadastro}</div>
-              <form className='termosCondicoes' onSubmit={handleRegistroSubmit} style={{marginTop:'25px'}}>
+              <form className='termosCondicoes' style={{marginTop:'25px'}}>
                 <label>
                   <input
                     type="checkbox"
@@ -332,7 +333,7 @@ export default function RegistroForm() {
                   Compartilhar meus dados cadastrais com os provedores de conteúdo do Spotify para fins de marketing
                 </label>
 
-                  <button type='submit' className='registro' style={{marginTop:"60px"}}>inscreva-se</button>
+                  <button className='registro' onClick={handleRegistroSubmit} style={{marginTop:"60px"}}>inscreva-se</button>
                 </form>
 
               <span className='span-info' style={{fontSize:"x-small", marginTop:"20px", marginBottom:"20px"}}>

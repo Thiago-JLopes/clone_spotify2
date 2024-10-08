@@ -21,6 +21,12 @@
     width: 105px;
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .form-email, .form-registro {
     padding: 12px;
     max-width: 350px;

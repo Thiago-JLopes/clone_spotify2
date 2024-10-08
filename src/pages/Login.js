@@ -25,6 +25,12 @@ export default function Login() {
             return;
         }
 
+        if(senha === ''){
+            setMsgErro('A senha não pode ser vazia.');
+            return;
+        }
+
+
     };
 
     return (

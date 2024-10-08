@@ -44,7 +44,7 @@ export default function Registro() {
                 </Link>
             </div>
 
-            <div className='form center'>
+            <div className='form'>
                 <div className='form-email'>
                     <h1>Se inscreva e comece a curtir</h1>
 
