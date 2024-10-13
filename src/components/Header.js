@@ -1,10 +1,10 @@
 // Importa hooks do React
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // Importa o arquivo CSS para estilos
 import './style/components.css';
 // Importa componentes de navegação do React Router
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 // Importa imagens para os botões de navegação e ícones
 import arrowLefth from '../assets/lefth-chevron.png';
 import arrowRight from '../assets/right-chevron.png';
@@ -16,10 +16,8 @@ export default function Header(props) {
     // Extrai a propriedade `profile` dos props
     const { profile } = props;
     // Declara estados para controlar se o usuário está logado e se o menu do usuário está visível
-    const [usuarioLogado, setUsuarioLogado] = useState(false);
     const [showMenuUsuario, setShowMenuUsuario] = useState(false);
     // Hook de navegação do React Router
-    const navigate = useNavigate();
 
     // Loga o perfil para depuração
     console.log(profile);
@@ -40,13 +38,13 @@ export default function Header(props) {
                     </div>
                     
                     {/* Se o usuário não estiver logado, exibe os botões de login e registro */}
-                    <div className={`login-singUp ${usuarioLogado ? 'hiden' : 'center'}`}>
+                    <div>
                         <Link to={"/registro"}><button className='singUp center'>Sing up</button></Link>
                         <Link to={'/login'}><button className='logIn center'>Log in</button></Link>
                     </div>
 
                     {/* Se o usuário estiver logado, exibe as notificações e o perfil */}
-                    <div className={`notificacao-perfil ${!usuarioLogado ? 'hiden' : 'center'}`}>
+                    <div>
                         <button className='notification center'>
                             <img src={bell} alt='icon notification'/>
                         </button>
@@ -66,7 +64,7 @@ export default function Header(props) {
                 </nav>
 
                 {/* Se o usuário estiver logado, exibe o menu */}
-                <div className={`${usuarioLogado ? 'menu' : 'hiden'}`}>
+                <div>
                     <button>All</button>
                     <button>Music</button>
                     <button>Podcasts</button>

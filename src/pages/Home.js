@@ -7,9 +7,32 @@ import iconHouse from '../assets/house.png';
 import logo from '../assets/Spotify_Primary_Logo_RGB_White.png'
 import searchIcon from '../assets/search.png'
 import Rodape from '../components/Rodape';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { clientCredentials } from '../utils/APIRoutes';
 
 export default function Home() {
+
+  //obtém o token de acesso no fluxo client credentials
+  useEffect(() => {
+    async function fetchClientCredentials() {
+      await axios.get(clientCredentials)
+      .then(response => {
+        console.log("Resposta: ", response);
+        localStorage.setItem("clientCredentials", response.data.access_token);
+      })
+      .catch(error => {
+        console.log("Erro na requisição da api: ", error);
+      })  
+    }
+
+    //Executa a função quando o componente é montado e depois a cada 55mim
+    fetchClientCredentials();
+    const interval =  setInterval(fetchData, 1000 * 60 * 55);
+
+    //Limpa o intervalo quando o componente for desmontado
+    return () => clearInterval(interval);
+  },[])
 
   const navigate = useNavigate();
   const [dataSearch, setDataSearch] = useState('');

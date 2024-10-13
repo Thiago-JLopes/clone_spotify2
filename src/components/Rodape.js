@@ -33,15 +33,15 @@ export default function Rodape() {
             
             <div className='redesSociais'>
                 <ul className='listaRedesSociais spaceAround'>
-                    <li> <i class="fa fa-instagram" aria-hidden="true" style={{color: '#fff'}}></i> </li>
-                    <li> <i class="fa fa-twitter" aria-hidden="true" style={{color: '#fff'}}></i> </li>
-                    <li> <i class="fa fa-facebook-official" aria-hidden="true" style={{color: '#fff'}}></i> </li>
+                    <li> <i className="fa fa-instagram" aria-hidden="true" style={{color: '#fff'}}></i> </li>
+                    <li> <i className="fa fa-twitter" aria-hidden="true" style={{color: '#fff'}}></i> </li>
+                    <li> <i className="fa fa-facebook-official" aria-hidden="true" style={{color: '#fff'}}></i> </li>
                 </ul>
             </div>
         </div>
         
         <div style={{color: 'rgb(148, 148, 148)', padding: '5px', margin: '12px'}}> 
-            <i class="fa fa-copyright" aria-hidden="true" style={{color: 'rgb(148, 148, 148)'}}></i>
+            <i className="fa fa-copyright" aria-hidden="true" style={{color: 'rgb(148, 148, 148)'}}></i>
             <span style={{margin:'8px'}}>2024 Spotify AB</span>
         </div>
     </>
