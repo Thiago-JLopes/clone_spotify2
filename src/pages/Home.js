@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { clientCredentials } from '../utils/APIRoutes';
 import Search from '../components/Search';
+import MainContent from '../components/MainContent';
 
 export default function Home() {
 
@@ -105,6 +106,7 @@ export default function Home() {
         </aside>
 
         {/* Área Principal */}
+        {/*
         <main className='home-area'>
           <div className='conteudo'>
             <div className='recomendacoesAlbuns'>
@@ -114,6 +116,8 @@ export default function Home() {
             <Rodape/>
           </div>
         </main>
+         */}
+         <MainContent/>
       </section>
       {/* Rodapé */}
       <footer className='spaceBetweenRow'>
