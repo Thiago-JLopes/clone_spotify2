@@ -3,13 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import iconLibrary from '../assets/library.png';
 import iconPlus from '../assets/plus.png';
 import iconWWW from '../assets/globe.png';
-import iconHouse from '../assets/house.png';
 import logo from '../assets/Spotify_Primary_Logo_RGB_White.png'
-import searchIcon from '../assets/search.png'
 import Rodape from '../components/Rodape';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { clientCredentials } from '../utils/APIRoutes';
+import Search from '../components/Search';
 
 export default function Home() {
 
@@ -28,7 +27,7 @@ export default function Home() {
 
     //Executa a função quando o componente é montado e depois a cada 55mim
     fetchClientCredentials();
-    const interval =  setInterval(fetchData, 1000 * 60 * 55);
+    const interval =  setInterval(fetchClientCredentials, 1000 * 60 * 55);
 
     //Limpa o intervalo quando o componente for desmontado
     return () => clearInterval(interval);
@@ -37,35 +36,23 @@ export default function Home() {
   const navigate = useNavigate();
   const [dataSearch, setDataSearch] = useState('');
 
-  const search = (e) => {
-    setDataSearch(e);
+  const search = (value) => {
+    setDataSearch(value);
   };
   
   return (
     <div className='container'>
       <header className='header-home'>
-        {/* Logo */}
-        <img src={logo} alt='logo' title='Spotify' className='logo' onClick={() => navigate('/')}/>
-
-        {/* Área de Busca e Ícones */}
+        <div className='divImageHeader'>
+          <img src={logo} alt='logo' title='Spotify' className='logo' onClick={() => navigate('/')}/>
+        </div>
         <div className='home-search'>
-          <div className='center'>
-            <div id='iconHome' className='icon'>
-              <img src={iconHouse} alt='Início' title='Início' />
-            </div>
-
-            <div id='input-search' className='search-bar'>
-              <img src={searchIcon} alt='Buscar' title='Buscar' />
-              <input type='text' placeholder='O que você quer ouvir' onChange={(e)=>search(e.target.value)}/>
-            </div>
-          </div>
-
-          {/* Botões de Ação */}
-          <div className='buttonsHomeHeader'>
+          <Search onInputChange={search}/>
+        </div>
+        <div className='buttonsHomeHeader'>
             <button className='subscribe-btn' onClick={()=> navigate('/registro')}>Inscreva-se</button>
             <button className='login-btn' onClick={()=> navigate('/login')}>Entrar</button>
           </div>
-        </div>
       </header>
 
       <section className='container1'>
@@ -122,7 +109,7 @@ export default function Home() {
           <div className='conteudo'>
             <div className='recomendacoesAlbuns'>
             <h2 style={{color:'white', padding:'5px'}}>Artistas populares</h2>
-              
+              {dataSearch}
             </div>
             <Rodape/>
           </div>
