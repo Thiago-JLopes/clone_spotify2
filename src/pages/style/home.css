@@ -1,275 +1,142 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-.container1 {
-    display: flex;
-    height: 100%;
-    overflow-y: hidden;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .header-home {
-    color: white;
-    height: 12%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .logo {
-    width: 33.3px;
-    cursor: pointer;
-  }
-  
-  .home-search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;    
-  }
-
-  .divImageHeader {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 25px;
-    margin-right: 15px;
-    width: 20%;
-  }
-  
-  .buttonsHomeHeader {
-    display: flex;
-    gap: 15px;
-    margin-right: 12px;
-    white-space: nowrap;
-  }
-  
-  .subscribe-btn,
-  .login-btn {
-    border: none;
-    font-weight: 600;
-    font-size: medium;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    padding: 15px 25px 15px 25px;   
-    border-radius: 22px;
-  }
-  
-  .subscribe-btn {
-    color: rgb(173, 169, 169);
-    background-color: transparent;
-  }
-  
-  .login-btn {
-    color: black;
-    background-color: white;
-  }
-  
-  .subscribe-btn:hover,
-  .login-btn:hover {
-    transform: scale(1.05);
-  }
-  
-.menu-lateral-home {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
+  color: white;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.library {
-    height: 100%;
+.home-search {
+  display: flex;
+  flex-grow: 1;
 }
 
-.library, .filter,.home-area {
-    margin: 4px;   
+.divImageHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 25px;
+  margin-right: 15px;
+  width: 10%;
 }
 
-.library, .filter, .home-area  {
-    background-color: #181818cb;
-    border-radius: 8px;
+.buttonsHomeHeader {
+  display: flex;
+  gap: 15px;
+  margin-right: 12px;
+  white-space: nowrap;
 }
 
-.library, .filter {
-    display: flex;
-    flex-direction: column;
-    width: 383px;
-    padding: 15px;
+
+.subscribe-btn,
+.login-btn {
+  border: none;
+  font-weight: 600;
+  font-size: medium;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  padding: 15px 25px 15px 25px;
+  border-radius: 22px;
 }
 
-.home-area {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px;
+.subscribe-btn {
+  color: rgb(173, 169, 169);
+  background-color: transparent;
 }
 
-.nav-search div { 
-    padding-bottom: 15px;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
+.login-btn {
+  color: black;
+  background-color: white;
 }
 
-.nav-search span{
-    margin-left: 15px;
-    font-weight: 850;
-    font-size: 15px;
+.subscribe-btn:hover,
+.login-btn:hover {
+  transform: scale(1.05);
 }
 
-.library-head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.row-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
+  overflow: hidden;
 }
 
-.library-head > .center {
-    text-decoration: none;
-}
-.yourLibrary {
-    margin-left: 5px;
-    color: white;
-    font-weight: 850;
-    font-size: 15px;
+.section_type_1 {
+  height: 88%;
+  display: flex;
+  flex-direction: row;
 }
 
-.plus:active {
-    background-color: rgb(41, 40, 40);
-}
-
-.info-library {
-    overflow-y: auto;
-    max-height: 103px;
-}
-
-.info-library div {
-    background-color: rgba(39, 38, 38, 0.76);
-    color: white;
-    font-size: small;
-    padding: 5px;
-    border-radius: 8px;
-    display: block;
-    flex-direction: column;
-}
-
-.button-infoLibrary {
-    border: none;
-    border-radius: 20px;
-    padding: 8px;
-    margin: 8px;
-    font-weight: bold;
-}
-
-.info-library-div h4{
-    font-size: medium;
-    font-weight: bold;
-    margin-bottom: 5px;
+aside {
+  margin: 6px;
+  max-height: 100%;
+  width: 21.1%;
 }
 
 footer {
-    padding: 0.7rem;
-    color: white;
-    background: linear-gradient(to right, rgb(230, 44, 215), rgb(131, 63, 177), rgb(132, 196, 221));
-    height: 7.8vh;
-    margin: 7px;
+  padding: 0.7rem;
+  color: white;
+  background: linear-gradient(to right, rgb(230, 44, 215), rgb(131, 63, 177), rgb(132, 196, 221));
+  height: 12%;
+  margin: 6px;
 }
 
-footer > button {
-    border: none;
-    border-radius: 20px;
-    margin-right: 2.5vw;
-    padding: 0.8rem;
-    font-size: medium;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.4s ease; /* Transição suave para todas as propriedades */
-    box-sizing: border-box; /* Garante que o padding extra não expanda o tamanho */
-    
-    &:hover {
-        font-weight: 600;
-        transform: scale(1.05); 
-    }
+footer>button {
+  border: none;
+  border-radius: 20px;
+  margin-right: 2.5vw;
+  padding: 0.8rem;
+  font-size: medium;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  /* Transição suave para todas as propriedades */
+  box-sizing: border-box;
+  /* Garante que o padding extra não expanda o tamanho */
+
+  &:hover {
+    font-weight: 600;
+    transform: scale(1.05);
+  }
 }
 
-.nav-bar > .center-col span {
-    color: white;
-    font-size: small;
-    font-weight: 300;
+.logo {
+  width: 33.3px;
+  cursor: pointer;
 }
-
-.links-diversos {
-    margin-top: 8px;
-    font-size: small;
-    color: rgb(226, 225, 225);
-}
-
-.links-diversos pre{
-    margin: 5px;
-    padding: 5px;
-}
-.links-diversos span {
-    font-weight: bold;
-    margin: 5px;
-}
-
-.links-diversos button {
-    border-color: rgb(75, 74, 73);
-    border-radius: 50px;
-    background-color: transparent;
-    color: white;
-    padding: 4px;
-    width: 100px;
-    margin-top: 20px;
-    margin-left: 8px;
-    cursor: pointer;
-}
-
-.recomendacoesAlbuns {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.recomendacoesAlbuns h2 {
-    margin-left: 17px;
-}
-
 
 /**Medias**/
-@media screen and (max-width: 575.98px){
-    .divImageHeader {
-        display: none;
-    }
+@media screen and (max-width: 575.98px) {
+  .divImageHeader {
+    display: none;
+  }
 }
 
-@media screen and (max-width: 900.99px){
-    .subscribe-btn,
-    .login-btn {
-        padding: 8px 18px;
-        font-size: x-small;
-    }   
-    footer, footer > button {
-        font-size: x-small;
-    }
-    
-    #iconHome,.menu-lateral-home {
-        display: none;
-    }
 
-    .buttonsHomeHeader {
-        gap: 1px;
-    }
+@media screen and (max-width: 900.99px) {
+  aside {
+    display: none;
+  }
+  .buttonsHomeHeader {
+    gap: 1px;
+  }
 
-    #input-search input {
-        padding: 10px;
-        height: 10px;
-    }
+  .subscribe-btn,
+  .login-btn {
+    padding: 8px 18px;
+    font-size: x-small;
+  }
 
-    #input-search {
-        margin: 5px;
-    }
-
+  footer,
+  footer>button {
+    font-size: x-small;
+  }
 }
+
+/*--------------------------------------------------------*/

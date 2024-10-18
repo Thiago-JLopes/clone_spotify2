@@ -1,18 +1,16 @@
-import './style/mainContent.css';
-
-import '../pages/style/home.css';
+import './style/mainContent.css'
 import Rodape from '../components/Rodape';
-export default function MainContent() {
+
+
+export default function MainContent({params}) {
     return (
-        <>
-        <main className='home-area'>
+        <main className="area-principal">
+          
           <div className='conteudo'>
-            <div className='recomendacoesAlbuns'>
-            <h2 style={{color:'white', padding:'5px'}}>Artistas populares</h2>
-            </div>
-            <Rodape/>
+            {params}
+            <Rodape/>      
           </div>
+          
         </main>
-        </>
     );
 }
