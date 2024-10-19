@@ -7,6 +7,7 @@ import Registro from "./pages/Registro";
 import RegistroForm from "./pages/RegistroForm";
 import Login from "./pages/Login";
 import HomeUser from "./pages/HomeUser";
+import Tabs from "./components/tabs/tabComponent/TabsComponent";
 
 
 function App () {
@@ -18,6 +19,7 @@ function App () {
                 <Route path="registro" element={<Registro/>}/>
                 <Route path="registroForm" element={<RegistroForm/>}/>
                 <Route path="homeUser" element={<HomeUser/>}/>
+                <Route path="tabs" element={<Tabs/>}/>
             </Routes>
         </BrowserRouter>
     );
