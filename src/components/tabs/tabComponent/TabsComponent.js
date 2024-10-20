@@ -17,7 +17,7 @@ const CustomTab = styled(Tab)(({ theme, selected }) => ({
   }));
 
 export default function TabsComponent({dataFilter}) {
-    const [selectedFilter, setSelectedFilter] = useState('track artist album playlist podcasts');
+    const [selectedFilter, setSelectedFilter] = useState('track,artist,album,playlist,show,episode');
 
         
     // Manipulador de mudança de filtro e Passando o valor do filtro para o componente pai
@@ -43,12 +43,12 @@ export default function TabsComponent({dataFilter}) {
                     height: 'max-content'
                 }}
             >
-                <CustomTab label="Tudo" value="track artist album playlist podcasts"/>
+                <CustomTab label="Tudo" value="track,artist,album,playlist,show,episode"/>
                 <CustomTab label="Músicas" value="track" />
                 <CustomTab label="Artistas" value="artist" />
                 <CustomTab label="Álbuns" value="album" />
                 <CustomTab label="Playlists" value="playlist" />
-                <CustomTab label="Podcasts e programas" value="shows episode" />
+                <CustomTab label="Podcasts e programas" value="show,episode" />
             </Tabs>
 
             {/* Renderização condicional dos resultados */}
