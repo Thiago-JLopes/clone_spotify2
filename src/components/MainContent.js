@@ -2,9 +2,8 @@ import './style/mainContent.css'
 import Rodape from '../components/Rodape';
 import TabsComponent from './tabs/tabComponent/TabsComponent';
 import { useEffect, useState } from 'react';
-import { searchItems } from '../utils/APIRoutes';
 import axios from 'axios';
-import { response } from 'express';
+import { searchApi } from '../utils/APIRoutes';
 
 
 export default function MainContent({ params }) {
@@ -16,20 +15,44 @@ export default function MainContent({ params }) {
   }
 
   useEffect(() => {
+    async function search() {
       let q = dataSearch; //parametro de busca na api
       let type = selectedFilter; //tipo de conteudo a ser buscado
-      let amoutResults = 5;
+      let limit = 5;
 
       //se o parametro de busca não for vazio chama a APi
       if (q !== '') {
         //modifica o q do filtro para melhorar os resultados da busca
-        if (type === 'artist') { q = q + ' artist:' + dataSearch; amoutResults = 50 }
-        if (type === 'track') { q = q + ' track:' + dataSearch; amoutResults = 50 }
-        if (type === 'playlist') { q = q + ' playlist:' + dataSearch; amoutResults = 50 }
-        if (type === 'album') { q = q + ' album:' + dataSearch; amoutResults = 50 }
-        if (type === 'show,episode') { q = q + ' show:' + dataSearch + ' episode:' + dataSearch; amoutResults = 50 }
-
+        if (type === 'artist') { q = q + ' artist:' + dataSearch; limit = 50 }
+        if (type === 'track') { q = q + ' track:' + dataSearch; limit = 50 }
+        if (type === 'playlist') { q = q + ' playlist:' + dataSearch; limit = 50 }
+        if (type === 'album') { q = q + ' album:' + dataSearch; limit = 50 }
+        if (type === 'show,episode') { q = q + ' show:' + dataSearch + ' episode:' + dataSearch; limit = 50 }
       }
+
+      let access_token = localStorage.getItem('access_token');
+
+      if (access_token) {
+        //Chama API de busca do spotify
+        await axios.post(searchApi, {
+          params: {
+            access_token: access_token,
+            q: q,
+            type: type,
+            limit: limit
+          }
+        })
+          .then(response => {
+            console.log(response.data)
+          })
+          .catch(error => {
+            console.log("Erro ao realizar busca ", error);
+          })
+      }
+
+    }
+
+    search();
   }, [selectedFilter, dataSearch])
 
   return (
