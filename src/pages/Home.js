@@ -17,8 +17,9 @@ export default function Home() {
     async function fetchClientCredentials() {
       await axios.get(clientCredentials)
         .then(response => {
-          console.log("Resposta: ", response);
-          localStorage.setItem("clientCredentials", response.data.access_token);
+          const token = response.data.access_token;
+          localStorage.setItem("access_token", token);
+          setAccessToken(token);
         })
         .catch(error => {
           console.log("Erro na requisição da api: ", error);
@@ -35,6 +36,7 @@ export default function Home() {
 
   const navigate = useNavigate();
   const [dataSearch, setDataSearch] = useState('');
+  const [access_token, setAccessToken] = useState('');
 
   const search = (value) => {
     setDataSearch(value);
@@ -96,7 +98,7 @@ export default function Home() {
             </div>
 
           </aside>
-          <MainContent params={dataSearch} />
+          <MainContent params={dataSearch} access_token={access_token}/>
         </section>
 
         {/* Rodapé */}

@@ -6,7 +6,7 @@ import axios from 'axios';
 import { searchApi } from '../utils/APIRoutes';
 
 
-export default function MainContent({ params }) {
+export default function MainContent({ params, access_token }) {
   const [selectedFilter, setSelectedFilter] = useState('track,artist,album,playlist,show');
   let dataSearch = params;
 
@@ -30,17 +30,13 @@ export default function MainContent({ params }) {
         if (type === 'show,episode') { q = q + ' show:' + dataSearch + ' episode:' + dataSearch; limit = 50 }
       }
 
-      let access_token = localStorage.getItem('access_token');
-
-      if (access_token) {
+      if (access_token !== '' && q !== '') {
         //Chama API de busca do spotify
         await axios.post(searchApi, {
-          params: {
-            access_token: access_token,
-            q: q,
-            type: type,
-            limit: limit
-          }
+          access_token: access_token,
+          q: q,
+          type: type,
+          limit: limit
         })
           .then(response => {
             console.log(response.data)
@@ -53,7 +49,7 @@ export default function MainContent({ params }) {
     }
 
     search();
-  }, [selectedFilter, dataSearch])
+  }, [selectedFilter, dataSearch, access_token])
 
   return (
     <main className="area-principal">
